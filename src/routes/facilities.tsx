@@ -36,6 +36,7 @@ export const Route = createFileRoute("/facilities")({
 });
 
 interface FacilityItem {
+  id: string;
   icon: LucideIcon;
   title: string;
   description: string;
@@ -49,6 +50,7 @@ function FacilitiesPage() {
 
   const facilities: FacilityItem[] = [
     {
+      id: "oasis-spa",
       icon: Sparkles,
       title: "Oasis Spa & Wellness",
       description:
@@ -58,6 +60,7 @@ function FacilitiesPage() {
       tag: "Award Winning",
     },
     {
+      id: "cascading-pools",
       icon: Waves,
       title: "Cascading Pools",
       description:
@@ -67,6 +70,7 @@ function FacilitiesPage() {
       tag: "Heated in Winter",
     },
     {
+      id: "regency-club",
       icon: Crown,
       title: "Regency Club",
       description:
@@ -76,6 +80,7 @@ function FacilitiesPage() {
       tag: "VIP Access",
     },
     {
+      id: "padi-dive",
       icon: Anchor,
       title: "PADI Diving Center",
       description:
@@ -85,6 +90,7 @@ function FacilitiesPage() {
       tag: "Gardens Bay Reef",
     },
     {
+      id: "kids-club",
       icon: Smile,
       title: "Regency Kids Club",
       description:
@@ -93,6 +99,7 @@ function FacilitiesPage() {
       tag: "Complimentary for Guests",
     },
     {
+      id: "sports-center",
       icon: Trophy,
       title: "Sports Center & Courts",
       description:
@@ -101,6 +108,7 @@ function FacilitiesPage() {
       tag: "Equipment Provided",
     },
     {
+      id: "olympus-fitness",
       icon: Heart,
       title: "Club Olympus Fitness",
       description:
@@ -109,6 +117,7 @@ function FacilitiesPage() {
       tag: "24/7 Access",
     },
     {
+      id: "airport-concierge",
       icon: Plane,
       title: "Airport Concierge Services",
       description:
@@ -121,17 +130,17 @@ function FacilitiesPage() {
   return (
     <PageShell>
       <PageHero
-        eyebrow="Resort Services"
-        title="Facilities & Amenities"
-        subtitle="Every detail curated to elevate your beachfront escape and ensure absolute ease."
+        eyebrow={t("facilities.heroEyebrow")}
+        title={t("facilities.heroTitle")}
+        subtitle={t("facilities.heroSubtitle")}
         image={pool}
       />
 
       <section className="py-24 container mx-auto px-6">
         <div className="text-center max-w-xl mx-auto mb-16">
-          <span className="eyebrow">A World of Leisure</span>
+          <span className="eyebrow">{t("facilities.eyebrow")}</span>
           <h2 className="font-display text-3xl md:text-4xl mt-2 text-ocean-deep">
-            Crafted for the Senses
+            {t("facilities.sectionTitle")}
           </h2>
           <div className="gold-divider mx-auto my-4" />
         </div>
@@ -149,12 +158,12 @@ function FacilitiesPage() {
                   <div className="relative aspect-[16/10] overflow-hidden">
                     <img
                       src={fac.img}
-                      alt={fac.title}
+                      alt={t(`facilities.items.${fac.id}.title`)}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     {fac.tag && (
                       <span className="absolute top-4 left-4 bg-ocean-deep/90 text-gold text-[9px] uppercase tracking-wider font-bold px-2 py-1">
-                        {fac.tag}
+                        {t(`facilities.items.${fac.id}.tag`)}
                       </span>
                     )}
                   </div>
@@ -164,13 +173,15 @@ function FacilitiesPage() {
                     <div className="flex items-center gap-2 mb-4 text-gold">
                       <Icon className="h-5 w-5" strokeWidth={1.5} />
                       <span className="text-[10px] uppercase tracking-widest font-semibold text-muted-foreground">
-                        Resort Facility
+                        {t("facilities.resortFacility")}
                       </span>
                     </div>
 
-                    <h3 className="font-display text-2xl text-ocean-deep mb-3">{fac.title}</h3>
+                    <h3 className="font-display text-2xl text-ocean-deep mb-3">
+                      {t(`facilities.items.${fac.id}.title`)}
+                    </h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      {fac.description}
+                      {t(`facilities.items.${fac.id}.description`)}
                     </p>
                   </div>
                 </div>
@@ -182,11 +193,11 @@ function FacilitiesPage() {
                       to={fac.link}
                       className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-gold hover:text-ocean-deep transition-colors"
                     >
-                      Explore Service <ArrowRight className="h-4 w-4" />
+                      {t("facilities.exploreService")} <ArrowRight className="h-4 w-4" />
                     </Link>
                   ) : (
                     <span className="text-xs text-muted-foreground uppercase tracking-widest font-medium">
-                      Inquire with Concierge
+                      {t("facilities.inquireConcierge")}
                     </span>
                   )}
                 </div>

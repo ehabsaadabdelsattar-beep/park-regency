@@ -2,35 +2,28 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageShell } from "@/components/page-shell";
 import { PageHero } from "@/components/page-hero";
 import { useState } from "react";
-import {
-  MapPin,
-  Phone,
-  Mail,
-  Facebook,
-  Instagram,
-  Plane,
-  CheckCircle,
-  MessageSquare,
-} from "lucide-react";
+import { useTranslation } from "react-i18next";
+import i18n from "@/i18n";
+import { MapPin, Phone, Mail, Facebook, Instagram, Plane, MessageSquare } from "lucide-react";
 import welcome from "@/assets/welcome.jpg";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Park Regency Sharm El Sheikh" },
+      { title: i18n.t("contact.title") },
       {
         name: "description",
-        content:
-          "Get in touch with our reservations, events or concierge teams. Located in Gardens Bay, Sharm El Sheikh.",
+        content: i18n.t("contact.metaDesc"),
       },
-      { property: "og:title", content: "Contact Park Regency" },
-      { property: "og:description", content: "We look forward to welcoming you." },
+      { property: "og:title", content: i18n.t("contact.ogTitle") },
+      { property: "og:description", content: i18n.t("contact.ogDesc") },
     ],
   }),
   component: ContactPage,
 });
 
 function ContactPage() {
+  const { t } = useTranslation();
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -50,16 +43,16 @@ function ContactPage() {
       setPhone("");
       setSubject("Reservation");
       setMessage("");
-      alert("Message Sent successfully! A concierge agent will respond shortly.");
+      alert(t("contact.successMsg"));
     }, 1500);
   };
 
   return (
     <PageShell>
       <PageHero
-        eyebrow="Contact"
-        title="We look forward to welcoming you"
-        subtitle="Our team is available 24/7 to plan every detail."
+        eyebrow={t("contact.heroEyebrow")}
+        title={t("contact.heroTitle")}
+        subtitle={t("contact.heroSubtitle")}
         image={welcome}
         height="sm"
       />
@@ -67,23 +60,21 @@ function ContactPage() {
       <section className="py-20 container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
           <div>
-            <h2 className="font-display text-3xl text-ocean-deep">Get in touch</h2>
+            <h2 className="font-display text-3xl text-ocean-deep">{t("contact.getInTouch")}</h2>
             <div className="gold-divider my-5" />
 
             <div className="space-y-6 mt-8">
               <div className="flex gap-4">
                 <MapPin className="h-5 w-5 text-gold shrink-0 mt-1" />
                 <div>
-                  <div className="eyebrow">Address</div>
+                  <div className="eyebrow">{t("contact.addressLabel")}</div>
                   <a
                     href="https://maps.google.com/?q=Park+Regency+Sharm+El+Sheikh"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-foreground hover:text-gold mt-1 block text-sm font-medium"
+                    className="text-foreground hover:text-gold mt-1 block text-sm font-medium whitespace-pre-line"
                   >
-                    Gardens Bay, Sharm El Sheikh
-                    <br />
-                    South Sinai, Egypt
+                    {t("contact.address")}
                   </a>
                 </div>
               </div>
@@ -91,7 +82,7 @@ function ContactPage() {
               <div className="flex gap-4">
                 <Phone className="h-5 w-5 text-gold shrink-0 mt-1" />
                 <div>
-                  <div className="eyebrow">Reservations</div>
+                  <div className="eyebrow">{t("contact.reservationsLabel")}</div>
                   <a
                     href="tel:+20693600000"
                     className="text-foreground hover:text-gold text-sm font-medium"
@@ -104,7 +95,7 @@ function ContactPage() {
               <div className="flex gap-4">
                 <Mail className="h-5 w-5 text-gold shrink-0 mt-1" />
                 <div>
-                  <div className="eyebrow">Email</div>
+                  <div className="eyebrow">{t("contact.emailLabel")}</div>
                   <a
                     href="mailto:reservations@parkregency.com"
                     className="text-foreground hover:text-gold block text-sm font-medium"
@@ -129,9 +120,9 @@ function ContactPage() {
               <div className="flex gap-4">
                 <Plane className="h-5 w-5 text-gold shrink-0 mt-1" />
                 <div>
-                  <div className="eyebrow">Airport Link</div>
+                  <div className="eyebrow">{t("contact.airportLabel")}</div>
                   <div className="text-foreground text-sm font-medium mt-1">
-                    15 minutes from Sharm El Sheikh International (SSH)
+                    {t("contact.airportDesc")}
                   </div>
                 </div>
               </div>
@@ -140,11 +131,10 @@ function ContactPage() {
             {/* Direct WhatsApp Callout */}
             <div className="mt-10 p-6 bg-secondary/40 border border-border max-w-md">
               <h3 className="text-xs uppercase tracking-widest font-semibold text-ocean-deep flex items-center gap-2 mb-3">
-                <MessageSquare className="h-4.5 w-4.5 text-gold" /> Live Chat Assistance
+                <MessageSquare className="h-4.5 w-4.5 text-gold" /> {t("contact.chatEyebrow")}
               </h3>
               <p className="text-xs text-muted-foreground leading-relaxed mb-4">
-                Chat directly with our 24/7 reception desk for immediate support, villa booking
-                verification, or transfer coordinates.
+                {t("contact.chatDesc")}
               </p>
               <a
                 href="https://wa.me/20693600000"
@@ -152,7 +142,7 @@ function ContactPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-5 py-3 bg-[#25D366] text-white hover:bg-[#20ba5a] text-xs font-bold uppercase tracking-wider transition-colors shadow-sm"
               >
-                Chat on WhatsApp
+                {t("contact.chatBtn")}
               </a>
             </div>
 
@@ -184,10 +174,10 @@ function ContactPage() {
             className="bg-card border border-border shadow-luxury p-8 md:p-10 space-y-5"
             onSubmit={handleSubmit}
           >
-            <h2 className="font-display text-2xl text-ocean-deep">Send a message</h2>
+            <h2 className="font-display text-2xl text-ocean-deep">{t("contact.sendMessage")}</h2>
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
-                <label className="eyebrow block mb-2">First name</label>
+                <label className="eyebrow block mb-2">{t("contact.firstName")}</label>
                 <input
                   type="text"
                   required
@@ -197,7 +187,7 @@ function ContactPage() {
                 />
               </div>
               <div>
-                <label className="eyebrow block mb-2">Last name</label>
+                <label className="eyebrow block mb-2">{t("contact.lastName")}</label>
                 <input
                   type="text"
                   required
@@ -209,7 +199,7 @@ function ContactPage() {
             </div>
 
             <div>
-              <label className="eyebrow block mb-2">Email</label>
+              <label className="eyebrow block mb-2">{t("contact.emailInput")}</label>
               <input
                 type="email"
                 required
@@ -220,7 +210,7 @@ function ContactPage() {
             </div>
 
             <div>
-              <label className="eyebrow block mb-2">Phone</label>
+              <label className="eyebrow block mb-2">{t("contact.phoneInput")}</label>
               <input
                 type="tel"
                 required
@@ -231,22 +221,22 @@ function ContactPage() {
             </div>
 
             <div>
-              <label className="eyebrow block mb-2">Subject</label>
+              <label className="eyebrow block mb-2">{t("contact.subject")}</label>
               <select
                 value={subject}
                 onChange={(e) => setSubject(e.target.value)}
                 className="w-full border border-border bg-background px-4 py-3 text-sm outline-none focus:border-gold cursor-pointer"
               >
-                <option value="Reservation">Reservation</option>
-                <option value="Wedding">Wedding</option>
-                <option value="Meeting / Event">Meeting / Event</option>
-                <option value="Concierge">Concierge</option>
-                <option value="Other">Other</option>
+                <option value="Reservation">{t("contact.subjects.reservation")}</option>
+                <option value="Wedding">{t("contact.subjects.wedding")}</option>
+                <option value="Meeting / Event">{t("contact.subjects.meeting")}</option>
+                <option value="Concierge">{t("contact.subjects.concierge")}</option>
+                <option value="Other">{t("contact.subjects.other")}</option>
               </select>
             </div>
 
             <div>
-              <label className="eyebrow block mb-2">Message</label>
+              <label className="eyebrow block mb-2">{t("contact.messageLabel")}</label>
               <textarea
                 rows={5}
                 required
@@ -260,7 +250,7 @@ function ContactPage() {
               type="submit"
               className="w-full py-4 bg-ocean-deep text-white text-xs uppercase tracking-[0.22em] font-semibold hover:bg-gold hover:text-ocean-deep transition-colors cursor-pointer"
             >
-              Send Message
+              {t("contact.sendBtn")}
             </button>
           </form>
         </div>

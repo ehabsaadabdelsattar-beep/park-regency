@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageShell } from "@/components/page-shell";
 import { PageHero } from "@/components/page-hero";
 import { Play, Maximize } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import i18n from "@/i18n";
 import hero from "@/assets/hero.jpg";
 import roomSuite from "@/assets/room-suite.jpg";
 import pool from "@/assets/pool.jpg";
@@ -11,34 +13,35 @@ import spa from "@/assets/spa.jpg";
 export const Route = createFileRoute("/virtual-tour")({
   head: () => ({
     meta: [
-      { title: "Virtual Tour — Park Regency Sharm El Sheikh" },
+      { title: i18n.t("virtualTour.title") },
       {
         name: "description",
-        content:
-          "Step inside Park Regency with our immersive 360° virtual tour — rooms, beaches, restaurants and spa.",
+        content: i18n.t("virtualTour.metaDesc"),
       },
-      { property: "og:title", content: "360° Virtual Tour" },
-      { property: "og:description", content: "Experience the resort before you arrive." },
+      { property: "og:title", content: i18n.t("virtualTour.ogTitle") },
+      { property: "og:description", content: i18n.t("virtualTour.ogDesc") },
     ],
   }),
   component: TourPage,
 });
 
-const scenes = [
-  { img: hero, label: "Main Beach" },
-  { img: roomSuite, label: "Royal Suite" },
-  { img: pool, label: "Infinity Pool" },
-  { img: dining, label: "Sala Thai" },
-  { img: spa, label: "Spa Reception" },
-];
-
 function TourPage() {
+  const { t } = useTranslation();
+
+  const scenes = [
+    { img: hero, label: t("virtualTour.scenes.beach") },
+    { img: roomSuite, label: t("virtualTour.scenes.suite") },
+    { img: pool, label: t("virtualTour.scenes.pool") },
+    { img: dining, label: t("virtualTour.scenes.dining") },
+    { img: spa, label: t("virtualTour.scenes.spa") },
+  ];
+
   return (
     <PageShell>
       <PageHero
-        eyebrow="Virtual Tour"
-        title="Step inside Park Regency"
-        subtitle="Wander our beaches, suites and dining venues in immersive 360°."
+        eyebrow={t("virtualTour.heroEyebrow")}
+        title={t("virtualTour.heroTitle")}
+        subtitle={t("virtualTour.heroSubtitle")}
         image={hero}
         height="sm"
       />
@@ -55,8 +58,8 @@ function TourPage() {
             <div className="h-20 w-20 rounded-full bg-gold flex items-center justify-center group-hover:scale-110 transition-transform">
               <Play className="h-8 w-8 text-ocean-deep fill-current ml-1" />
             </div>
-            <div className="mt-6 font-display text-3xl">Launch 360° Tour</div>
-            <div className="eyebrow text-white/70 mt-2">12 scenes · 4K resolution</div>
+            <div className="mt-6 font-display text-3xl">{t("virtualTour.launch")}</div>
+            <div className="eyebrow text-white/70 mt-2">{t("virtualTour.details")}</div>
           </button>
           <button
             aria-label="Fullscreen"

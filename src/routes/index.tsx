@@ -18,6 +18,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { BookingWidget } from "@/components/booking-widget";
 import { useCurrency } from "@/contexts/currency-context";
+import i18n from "@/i18n";
 
 import hero from "@/assets/hero.jpg";
 import welcome from "@/assets/welcome.jpg";
@@ -33,14 +34,14 @@ import pool from "@/assets/pool.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Park Regency Sharm El Sheikh — Luxury Red Sea Resort" },
+      { title: i18n.t("home.eyebrow") + " — Park Regency Sharm El Sheikh" },
       {
         name: "description",
         content:
           "5-star luxury resort on the Red Sea. Private beaches, world-class dining, spa & suites in Gardens Bay, Sharm El Sheikh.",
       },
       { property: "og:title", content: "Park Regency Sharm El Sheikh Resort" },
-      { property: "og:description", content: "Experience 5-star luxury by the Red Sea." },
+      { property: "og:description", content: i18n.t("home.heroSub") },
     ],
   }),
   component: Home,
@@ -115,30 +116,30 @@ function Home() {
     {
       id: "swim-up",
       img: pool,
-      name: "Swim Up Room",
+      name: t("home.rooms.swimUpName"),
       size: "44 m²",
       occupancy: t("home.occupancy2A"),
-      desc: "Dive directly into our heated lagoon pool from your private deck.",
+      desc: t("home.rooms.swimUpDesc"),
       priceUsd: 380,
       link: "/rooms/swim-up",
     },
     {
       id: "regency-club",
       img: roomSuite,
-      name: "Regency Club Room",
+      name: t("home.rooms.clubName"),
       size: "52 m²",
       occupancy: t("home.occupancy2A1C"),
-      desc: "Private lounge access, complimentary breakfast, and dedicated concierge.",
+      desc: t("home.rooms.clubDesc"),
       priceUsd: 580,
       link: "/rooms/regency-club",
     },
     {
       id: "royal-villa",
       img: hero,
-      name: "Royal Villa",
+      name: t("home.rooms.villaName"),
       size: "320 m²",
-      occupancy: "6 Adults + 3 Children",
-      desc: "Opulent private cliffside villa with private infinity pool & 24/7 butler.",
+      occupancy: t("home.occupancyVilla"),
+      desc: t("home.rooms.villaDesc"),
       priceUsd: 2800,
       link: "/suites-villas",
     },
@@ -154,26 +155,28 @@ function Home() {
   // Testimonials Slider State
   const testimonials = [
     {
-      name: "Isabella M.",
-      country: "Italy",
-      text: "The most magical week of our lives. Every detail, from the private butler service to the sunset dinners overlooking the Red Sea, was flawless.",
+      name: t("home.testimonials.isabella.name"),
+      country: t("home.testimonials.isabella.country"),
+      text: t("home.testimonials.isabella.text"),
     },
     {
-      name: "James R.",
-      country: "United Kingdom",
-      text: "A genuine 5-star experience. The Regency Club lounge alone is worth the trip — and the house reef diving was world-class.",
+      name: t("home.testimonials.james.name"),
+      country: t("home.testimonials.james.country"),
+      text: t("home.testimonials.james.text"),
     },
     {
-      name: "Hana K.",
-      country: "Germany",
-      text: "Pure luxury without pretense. The spa rituals were transformative, and the hospitality felt deeply personal.",
+      name: t("home.testimonials.hana.name"),
+      country: t("home.testimonials.hana.country"),
+      text: t("home.testimonials.hana.text"),
     },
     {
-      name: "Alexei V.",
-      country: "Kazakhstan",
-      text: "Exceptional dining options, beautiful beach bays, and very helpful staff. The Royal Villa exceeded all expectations.",
+      name: t("home.testimonials.alexei.name"),
+      country: t("home.testimonials.alexei.country"),
+      text: t("home.testimonials.alexei.text"),
     },
   ];
+
+  const diningFeatures = t("home.diningFeatures", { returnObjects: true }) as string[];
 
   const [activeReview, setActiveReview] = useState(0);
 
@@ -316,7 +319,7 @@ function Home() {
                       to={link}
                       className="inline-flex items-center gap-2 text-xs uppercase font-semibold tracking-wider text-gold hover:text-ocean-deep transition-colors"
                     >
-                      Learn More <ArrowRight className="h-3.5 w-3.5" />
+                      {t("home.learnMore")} <ArrowRight className="h-3.5 w-3.5" />
                     </Link>
                   </div>
                 </div>
@@ -407,12 +410,7 @@ function Home() {
               <div className="gold-divider my-6" />
               <p className="text-white/80 leading-relaxed mb-6">{t("home.diningText")}</p>
               <ul className="space-y-4 text-white/85 mb-10 font-medium text-sm">
-                {[
-                  "Sala Thai · Authentic Royal Thai Fine Dining",
-                  "Beach House · Beachfront Mediterranean Grill",
-                  "The Main · Dynamic International Live Buffet Stations",
-                  "Sunset Bar & Terrace · Handcrafted Cocktails & Shisha Lounge",
-                ].map((x) => (
+                {diningFeatures.map((x) => (
                   <li key={x} className="flex gap-3 items-center">
                     <span className="text-gold font-bold">—</span>
                     {x}
@@ -531,7 +529,7 @@ function Home() {
                   ["8", t("home.venuesLabel")],
                   ["1,200m²", t("home.ballroomLabel")],
                 ].map(([n, l]) => (
-                  <div key={l}>
+                  <div key={l as string}>
                     <div className="font-display text-3xl font-medium text-gold">{n}</div>
                     <div className="eyebrow mt-1 text-muted-foreground text-[10px]">{l}</div>
                   </div>
@@ -630,11 +628,12 @@ function Home() {
           />
           {/* Floating Details Overlay Card */}
           <div className="absolute top-10 left-6 md:left-20 bg-card p-6 border border-border shadow-luxury max-w-sm">
-            <span className="eyebrow text-gold">Resort Location</span>
-            <h3 className="font-display text-xl text-ocean-deep mt-2 mb-3">Gardens Bay, Sinai</h3>
+            <span className="eyebrow text-gold">{t("home.locationEyebrow")}</span>
+            <h3 className="font-display text-xl text-ocean-deep mt-2 mb-3">
+              {t("home.locationTitle")}
+            </h3>
             <p className="text-xs text-muted-foreground leading-relaxed mb-4">
-              Conveniently located just 10 minutes from Sharm El Sheikh International Airport (SSH)
-              and 15 minutes from Naama Bay central district.
+              {t("home.locationDesc")}
             </p>
             <a
               href="https://maps.google.com/?q=Park+Regency+Sharm+El+Sheikh"
@@ -642,7 +641,7 @@ function Home() {
               rel="noopener noreferrer"
               className="text-xs uppercase tracking-wider font-semibold text-gold hover:text-ocean-deep transition-colors"
             >
-              Directions via Google Maps →
+              {t("home.directions")}
             </a>
           </div>
         </section>

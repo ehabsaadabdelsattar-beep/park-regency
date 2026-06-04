@@ -2,20 +2,22 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageShell } from "@/components/page-shell";
 import { PageHero } from "@/components/page-hero";
 import { Star, ExternalLink } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import i18n from "@/i18n";
 import welcome from "@/assets/welcome.jpg";
 
 export const Route = createFileRoute("/reviews")({
   head: () => ({
     meta: [
-      { title: "Guest Reviews — Park Regency Sharm El Sheikh" },
+      { title: i18n.t("reviews.title") },
       {
         name: "description",
-        content: "Read authentic reviews from our guests on TripAdvisor, Google and Facebook.",
+        content: i18n.t("reviews.metaDesc"),
       },
-      { property: "og:title", content: "Guest Reviews" },
+      { property: "og:title", content: i18n.t("reviews.ogTitle") },
       {
         property: "og:description",
-        content: "Thousands of guests, one common verdict — luxury done right.",
+        content: i18n.t("reviews.ogDesc"),
       },
     ],
   }),
@@ -122,12 +124,13 @@ const reviews = [
 ];
 
 function ReviewsPage() {
+  const { t } = useTranslation();
   return (
     <PageShell>
       <PageHero
-        eyebrow="Guest Reviews"
-        title="Voices of our guests"
-        subtitle="Thousands of stays. One consistent verdict."
+        eyebrow={t("reviews.heroEyebrow")}
+        title={t("reviews.heroTitle")}
+        subtitle={t("reviews.heroSubtitle")}
         image={welcome}
         height="sm"
       />
@@ -149,9 +152,11 @@ function ReviewsPage() {
                 ))}
               </div>
               <div className="eyebrow">{s.source}</div>
-              <div className="text-sm text-muted-foreground mt-2">{s.count} reviews</div>
+              <div className="text-sm text-muted-foreground mt-2">
+                {s.count} {t("reviews.reviewsCount")}
+              </div>
               <div className="mt-4 inline-flex items-center gap-1 text-xs uppercase tracking-[0.18em] text-gold group-hover:text-ocean-deep">
-                Read all <ExternalLink className="h-3 w-3" />
+                {t("reviews.readAll")} <ExternalLink className="h-3 w-3" />
               </div>
             </a>
           ))}

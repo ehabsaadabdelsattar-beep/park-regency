@@ -286,6 +286,7 @@ const venuesList: VenueItem[] = [
 ];
 
 function DiningPage() {
+  const { t } = useTranslation();
   const { formatPrice } = useCurrency();
 
   // Dialog State
@@ -309,25 +310,25 @@ function DiningPage() {
       setResTime("");
       setResGuests("2");
       setResNotes("");
-      alert("Table Reservation Confirmed! A confirmation email and SMS have been sent to you.");
+      alert(t("dining.reserveSuccess"));
     }, 1500);
   };
 
   return (
     <PageShell>
       <PageHero
-        eyebrow="Epicurean Journeys"
-        title="Signature Dining"
-        subtitle="Seven distinct venues celebrating culinary artistry, from royal Thai spices to beachside grills."
+        eyebrow={t("dining.heroEyebrow")}
+        title={t("dining.heroTitle")}
+        subtitle={t("dining.heroSubtitle")}
         image={dining}
       />
 
       {/* VENUES LISTING */}
       <section className="py-24 container mx-auto px-6">
         <div className="text-center max-w-xl mx-auto mb-16">
-          <span className="eyebrow">A Taste of the Extraordinary</span>
+          <span className="eyebrow">{t("dining.eyebrow")}</span>
           <h2 className="font-display text-3xl md:text-4xl mt-2 text-ocean-deep">
-            Our Restaurants & Bars
+            {t("dining.sectionTitle")}
           </h2>
           <div className="gold-divider mx-auto my-4" />
         </div>
@@ -342,26 +343,34 @@ function DiningPage() {
                 <div className="overflow-hidden aspect-[16/10]">
                   <img
                     src={v.img}
-                    alt={v.name}
+                    alt={t(`dining.venues.${v.id}.name`)}
                     loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 </div>
 
                 <div className="p-8">
-                  <span className="eyebrow text-gold block mb-2">{v.cuisine}</span>
-                  <h3 className="font-display text-2xl text-ocean-deep mb-3">{v.name}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-6">{v.text}</p>
+                  <span className="eyebrow text-gold block mb-2">
+                    {t(`dining.venues.${v.id}.cuisine`)}
+                  </span>
+                  <h3 className="font-display text-2xl text-ocean-deep mb-3">
+                    {t(`dining.venues.${v.id}.name`)}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+                    {t(`dining.venues.${v.id}.text`)}
+                  </p>
 
                   {/* Signature items */}
                   <div className="bg-secondary/40 p-4 border border-border mb-6">
                     <h4 className="text-[10px] uppercase tracking-widest font-semibold text-ocean-deep mb-2 flex items-center gap-1.5">
-                      <Utensils className="h-3.5 w-3.5 text-gold" /> Signature Specialties
+                      <Utensils className="h-3.5 w-3.5 text-gold" />{" "}
+                      {t("dining.signatureSpecialties")}
                     </h4>
                     <ul className="text-xs text-muted-foreground space-y-1.5">
                       {v.signatureDishes.map((dish, dIdx) => (
                         <li key={dIdx} className="flex gap-2 items-center">
-                          <Check className="h-3.5 w-3.5 text-gold shrink-0" /> {dish}
+                          <Check className="h-3.5 w-3.5 text-gold shrink-0" />{" "}
+                          {t(`dining.venues.${v.id}.signatureDishes.${dIdx}`)}
                         </li>
                       ))}
                     </ul>
@@ -370,11 +379,11 @@ function DiningPage() {
                   <div className="flex flex-wrap gap-5 text-xs uppercase tracking-[0.16em] text-muted-foreground border-t border-border pt-5 font-medium">
                     <span className="flex items-center gap-1.5">
                       <Clock className="h-3.5 w-3.5 text-gold" />
-                      {v.hours}
+                      {t(`dining.venues.${v.id}.hours`)}
                     </span>
                     <span className="flex items-center gap-1.5">
                       <Shield className="h-3.5 w-3.5 text-gold" />
-                      Dress: {v.dress}
+                      {t("dining.dress", { dress: t(`dining.venues.${v.id}.dress`) })}
                     </span>
                   </div>
                 </div>
@@ -386,13 +395,13 @@ function DiningPage() {
                   onClick={() => setSelectedMenuVenue(v)}
                   className="px-5 py-3.5 border border-border text-xs font-semibold uppercase tracking-[0.2em] hover:border-gold hover:text-gold transition-colors text-center cursor-pointer flex-1"
                 >
-                  View Menu
+                  {t("dining.viewMenu")}
                 </button>
                 <button
                   onClick={() => setSelectedReserveVenue(v)}
                   className="px-5 py-3.5 bg-ocean-deep text-white text-xs font-semibold uppercase tracking-[0.2em] hover:bg-gold hover:text-ocean-deep transition-colors text-center cursor-pointer flex-1"
                 >
-                  Reserve Table
+                  {t("dining.reserveTable")}
                 </button>
               </div>
             </article>
@@ -407,17 +416,20 @@ function DiningPage() {
             <button
               onClick={() => setSelectedMenuVenue(null)}
               className="absolute top-6 right-6 text-muted-foreground hover:text-gold p-1"
-              aria-label="Close menu modal"
+              aria-label={t("dining.menuClose")}
             >
               <X className="h-6 w-6" />
             </button>
 
-            <span className="eyebrow text-gold">{selectedMenuVenue.cuisine}</span>
+            <span className="eyebrow text-gold">
+              {t(`dining.venues.${selectedMenuVenue.id}.cuisine`)}
+            </span>
             <h3 className="font-display text-3xl text-ocean-deep mt-2 mb-1">
-              {selectedMenuVenue.name}
+              {t(`dining.venues.${selectedMenuVenue.id}.name`)}
             </h3>
             <p className="text-xs text-muted-foreground uppercase tracking-widest">
-              {selectedMenuVenue.hours} · Dress: {selectedMenuVenue.dress}
+              {t(`dining.venues.${selectedMenuVenue.id}.hours`)} ·{" "}
+              {t("dining.dress", { dress: t(`dining.venues.${selectedMenuVenue.id}.dress`) })}
             </p>
             <div className="gold-divider my-6" />
 
@@ -425,17 +437,21 @@ function DiningPage() {
               {selectedMenuVenue.mockMenu.map((cat, cIdx) => (
                 <div key={cIdx} className="space-y-4">
                   <h4 className="font-display text-xl text-ocean-deep border-b border-border pb-2 italic">
-                    {cat.category}
+                    {t(`dining.venues.${selectedMenuVenue.id}.menu.categories.${cat.category}`)}
                   </h4>
                   <div className="space-y-6">
                     {cat.items.map((menuItem, mIdx) => (
                       <div key={mIdx} className="flex justify-between items-start gap-6">
                         <div>
                           <h5 className="font-sans text-sm font-semibold text-ocean-deep uppercase tracking-wider">
-                            {menuItem.name}
+                            {t(
+                              `dining.venues.${selectedMenuVenue.id}.menu.items.${menuItem.name}.name`,
+                            )}
                           </h5>
                           <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
-                            {menuItem.desc}
+                            {t(
+                              `dining.venues.${selectedMenuVenue.id}.menu.items.${menuItem.name}.desc`,
+                            )}
                           </p>
                         </div>
                         <div className="font-display text-base text-gold shrink-0 font-medium">
@@ -449,8 +465,7 @@ function DiningPage() {
             </div>
 
             <div className="mt-10 border-t border-border pt-6 text-center text-[10px] text-muted-foreground uppercase tracking-widest">
-              * Government taxes and service charges are included. Menu selections subject to
-              seasonal changes.
+              {t("dining.menuTaxes")}
             </div>
           </div>
         </div>
@@ -463,22 +478,26 @@ function DiningPage() {
             <button
               onClick={() => setSelectedReserveVenue(null)}
               className="absolute top-6 right-6 text-muted-foreground hover:text-gold p-1"
-              aria-label="Close reservation modal"
+              aria-label={t("dining.reserveClose")}
             >
               <X className="h-6 w-6" />
             </button>
 
-            <span className="eyebrow text-gold">Dining Reservations</span>
-            <h3 className="font-display text-2xl text-ocean-deep mt-2 mb-2">Book a Table</h3>
+            <span className="eyebrow text-gold">{t("dining.reserveTitle")}</span>
+            <h3 className="font-display text-2xl text-ocean-deep mt-2 mb-2">
+              {t("dining.reserveHeading")}
+            </h3>
             <p className="text-xs text-muted-foreground uppercase tracking-wider">
-              Venue: {selectedReserveVenue.name}
+              {t("dining.reserveVenue", {
+                name: t(`dining.venues.${selectedReserveVenue.id}.name`),
+              })}
             </p>
             <div className="gold-divider my-5" />
 
             <form onSubmit={handleBookingSubmit} className="space-y-4">
               <div>
                 <label className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold block mb-1">
-                  Reservation Date
+                  {t("dining.reserveDate")}
                 </label>
                 <input
                   type="date"
@@ -492,7 +511,7 @@ function DiningPage() {
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold block mb-1">
-                    Time Slot
+                    {t("dining.reserveTime")}
                   </label>
                   <select
                     required
@@ -500,7 +519,7 @@ function DiningPage() {
                     onChange={(e) => setResTime(e.target.value)}
                     className="w-full bg-secondary border border-border p-3 text-xs text-foreground outline-none focus:border-gold cursor-pointer"
                   >
-                    <option value="">Choose Time</option>
+                    <option value="">{t("dining.chooseTime")}</option>
                     <option value="18:00">18:00</option>
                     <option value="18:30">18:30</option>
                     <option value="19:00">19:00</option>
@@ -514,7 +533,7 @@ function DiningPage() {
                 </div>
                 <div>
                   <label className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold block mb-1">
-                    Guests
+                    {t("dining.reserveGuests")}
                   </label>
                   <select
                     value={resGuests}
@@ -523,7 +542,9 @@ function DiningPage() {
                   >
                     {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
                       <option key={n} value={n}>
-                        {n} {n === 1 ? "Guest" : "Guests"}
+                        {n === 1
+                          ? t("dining.guestSingular", { count: n })
+                          : t("dining.guestsPlural", { count: n })}
                       </option>
                     ))}
                   </select>
@@ -532,11 +553,11 @@ function DiningPage() {
 
               <div>
                 <label className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold block mb-1">
-                  Special Dietary Requests
+                  {t("dining.reserveNotes")}
                 </label>
                 <textarea
                   rows={3}
-                  placeholder="e.g. Allergies, window table, celebrating anniversary"
+                  placeholder={t("dining.reserveNotesPlaceholder")}
                   value={resNotes}
                   onChange={(e) => setResNotes(e.target.value)}
                   className="w-full bg-secondary border border-border p-3 text-xs text-foreground outline-none focus:border-gold placeholder-muted-foreground/60"
@@ -548,16 +569,13 @@ function DiningPage() {
                 disabled={isReserved}
                 className="w-full py-4 bg-ocean-deep hover:bg-gold text-white hover:text-ocean-deep text-xs font-semibold uppercase tracking-widest transition-colors cursor-pointer disabled:opacity-50"
               >
-                {isReserved ? "Booking Table..." : "Confirm Table Reservation"}
+                {isReserved ? t("dining.reserveSubmitting") : t("dining.reserveSubmit")}
               </button>
             </form>
 
             <div className="mt-5 text-[10px] text-muted-foreground leading-normal flex gap-1.5 items-start">
               <Info className="h-4.5 w-4.5 text-gold shrink-0 mt-0.5" />
-              <span>
-                Tables will be held for a maximum of 15 minutes past reservation time. Dress code
-                guidelines apply.
-              </span>
+              <span>{t("dining.reserveHelp")}</span>
             </div>
           </div>
         </div>

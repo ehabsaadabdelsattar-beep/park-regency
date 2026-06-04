@@ -2,21 +2,22 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageShell } from "@/components/page-shell";
 import { PageHero } from "@/components/page-hero";
 import { MapPin, Clock, Briefcase, ArrowRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import i18n from "@/i18n";
 import welcome from "@/assets/welcome.jpg";
 
 export const Route = createFileRoute("/careers")({
   head: () => ({
     meta: [
-      { title: "Careers — Park Regency Sharm El Sheikh" },
+      { title: i18n.t("careers.title") },
       {
         name: "description",
-        content:
-          "Join the Park Regency family. Open positions in hospitality, F&B, spa and management.",
+        content: i18n.t("careers.metaDesc"),
       },
-      { property: "og:title", content: "Careers at Park Regency" },
+      { property: "og:title", content: i18n.t("careers.ogTitle") },
       {
         property: "og:description",
-        content: "Build your career with one of the Red Sea's leading luxury resorts.",
+        content: i18n.t("careers.ogDesc"),
       },
     ],
   }),
@@ -58,19 +59,20 @@ const jobs = [
 ];
 
 function CareersPage() {
+  const { t } = useTranslation();
   return (
     <PageShell>
       <PageHero
-        eyebrow="Careers"
-        title="Build your story with us"
-        subtitle="A career at Park Regency is a craft — refined every day, in service of the extraordinary."
+        eyebrow={t("careers.heroEyebrow")}
+        title={t("careers.heroTitle")}
+        subtitle={t("careers.heroSubtitle")}
         image={welcome}
       />
 
       <section className="py-20 container mx-auto px-6 max-w-5xl">
         <div className="text-center mb-12">
-          <span className="eyebrow">Open Positions</span>
-          <h2 className="font-display text-3xl md:text-4xl mt-3">Now hiring</h2>
+          <span className="eyebrow">{t("careers.openPositions")}</span>
+          <h2 className="font-display text-3xl md:text-4xl mt-3">{t("careers.nowHiring")}</h2>
           <div className="gold-divider mx-auto my-6" />
         </div>
         <div className="divide-y divide-border border-y border-border">
@@ -99,19 +101,16 @@ function CareersPage() {
                   </span>
                 </div>
               </div>
-              <ArrowRight className="h-5 w-5 text-gold group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="h-5 w-5 text-gold group-hover:translate-x-1 transition-transform rtl:rotate-180" />
             </a>
           ))}
         </div>
 
         <div className="mt-16 bg-secondary p-10 md:p-14 text-center">
           <h3 className="font-display text-2xl md:text-3xl text-ocean-deep">
-            Don't see your role?
+            {t("careers.notSeeRole")}
           </h3>
-          <p className="text-muted-foreground mt-3 max-w-xl mx-auto">
-            We are always interested in meeting exceptional talent. Send your CV to our People &
-            Culture team.
-          </p>
+          <p className="text-muted-foreground mt-3 max-w-xl mx-auto">{t("careers.sendCv")}</p>
           <a
             href="mailto:careers@parkregency.com"
             className="inline-block mt-6 px-8 py-3 bg-ocean-deep text-white text-xs uppercase tracking-[0.22em] hover:bg-gold hover:text-ocean-deep transition-colors"

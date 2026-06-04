@@ -2,93 +2,96 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageShell } from "@/components/page-shell";
 import { PageHero } from "@/components/page-hero";
 import { Award, Waves, Compass, Fish, GraduationCap, ShieldCheck } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import i18n from "@/i18n";
 import diving from "@/assets/diving.jpg";
 
 export const Route = createFileRoute("/dive-center")({
   head: () => ({
     meta: [
-      { title: "Dive Center — Park Regency Sharm El Sheikh" },
+      { title: i18n.t("diveCenter.title") },
       {
         name: "description",
-        content:
-          "PADI 5-Star dive center with daily trips to Ras Mohammed, Tiran Island and the SS Thistlegorm wreck.",
+        content: i18n.t("diveCenter.metaDesc"),
       },
-      { property: "og:title", content: "Park Regency Dive Center" },
+      { property: "og:title", content: i18n.t("diveCenter.ogTitle") },
       {
         property: "og:description",
-        content: "Discover the legendary reefs of the Red Sea with PADI experts.",
+        content: i18n.t("diveCenter.ogDesc"),
       },
     ],
   }),
   component: DivePage,
 });
 
-const courses = [
-  {
-    title: "Discover Scuba",
-    level: "Beginner",
-    duration: "Half day",
-    price: "85",
-    text: "Try diving in the safety of our private bay with a PADI instructor.",
-  },
-  {
-    title: "Open Water Course",
-    level: "Certification",
-    duration: "4 days",
-    price: "420",
-    text: "Become a certified diver with theory, pool sessions and four open-water dives.",
-  },
-  {
-    title: "Advanced Open Water",
-    level: "Advanced",
-    duration: "2 days",
-    price: "320",
-    text: "Expand your skills with deep, navigation and three specialty dives.",
-  },
-  {
-    title: "Rescue Diver",
-    level: "Pro path",
-    duration: "3 days",
-    price: "390",
-    text: "Prepare for any underwater scenario with rescue scenarios and emergency planning.",
-  },
-];
-
-const sites = [
-  {
-    name: "Ras Mohammed",
-    text: "Egypt's first national park — sheer walls, gardens of soft coral.",
-  },
-  {
-    name: "Tiran Island",
-    text: "Four legendary reefs in the Strait of Tiran teeming with reef sharks.",
-  },
-  {
-    name: "SS Thistlegorm",
-    text: "WWII British wreck — one of the most famous dive sites in the world.",
-  },
-  {
-    name: "Shark & Yolanda Reef",
-    text: "Cargo of toilets and turtles on a single dive — surreal and unforgettable.",
-  },
-];
-
 function DivePage() {
+  const { t } = useTranslation();
+
+  const courses = [
+    {
+      title: t("diveCenter.courses.discover.title"),
+      level: t("diveCenter.courses.discover.level"),
+      duration: t("diveCenter.courses.discover.duration"),
+      price: "85",
+      text: t("diveCenter.courses.discover.text"),
+    },
+    {
+      title: t("diveCenter.courses.openWater.title"),
+      level: t("diveCenter.courses.openWater.level"),
+      duration: t("diveCenter.courses.openWater.duration"),
+      price: "420",
+      text: t("diveCenter.courses.openWater.text"),
+    },
+    {
+      title: t("diveCenter.courses.advanced.title"),
+      level: t("diveCenter.courses.advanced.level"),
+      duration: t("diveCenter.courses.advanced.duration"),
+      price: "320",
+      text: t("diveCenter.courses.advanced.text"),
+    },
+    {
+      title: t("diveCenter.courses.rescue.title"),
+      level: t("diveCenter.courses.rescue.level"),
+      duration: t("diveCenter.courses.rescue.duration"),
+      price: "390",
+      text: t("diveCenter.courses.rescue.text"),
+    },
+  ];
+
+  const sites = [
+    {
+      name: t("diveCenter.sites.rasM.name"),
+      text: t("diveCenter.sites.rasM.text"),
+    },
+    {
+      name: t("diveCenter.sites.tiran.name"),
+      text: t("diveCenter.sites.tiran.text"),
+    },
+    {
+      name: t("diveCenter.sites.thistlegorm.name"),
+      text: t("diveCenter.sites.thistlegorm.text"),
+    },
+    {
+      name: t("diveCenter.sites.shark.name"),
+      text: t("diveCenter.sites.shark.text"),
+    },
+  ];
+
   return (
     <PageShell>
       <PageHero
-        eyebrow="Dive Center"
-        title="Beneath the surface, another world"
-        subtitle="A PADI 5-Star Dive Center on the doorstep of the world's finest reefs."
+        eyebrow={t("diveCenter.heroEyebrow")}
+        title={t("diveCenter.heroTitle")}
+        subtitle={t("diveCenter.heroSubtitle")}
         image={diving}
       />
 
       <section className="py-20 container mx-auto px-6">
         <div className="grid md:grid-cols-3 gap-px bg-border max-w-5xl mx-auto">
           {[
-            { icon: Award, title: "PADI 5-Star" },
-            { icon: ShieldCheck, title: "Safety First" },
-            { icon: GraduationCap, title: "Multilingual Instructors" },
+            { icon: Award, title: t("diveCenter.padi") },
+            { icon: ShieldCheck, title: t("diveCenter.safety") },
+            { icon: GraduationCap, title: t("diveCenter.multilingual") },
           ].map(({ icon: Icon, title }) => (
             <div key={title} className="bg-background p-8 text-center">
               <Icon className="h-9 w-9 text-gold mx-auto" strokeWidth={1.2} />
@@ -101,8 +104,10 @@ function DivePage() {
       <section className="py-16 md:py-24 bg-secondary">
         <div className="container mx-auto px-6">
           <div className="text-center max-w-xl mx-auto mb-12">
-            <span className="eyebrow">Courses</span>
-            <h2 className="font-display text-4xl md:text-5xl mt-3">From first breath to pro</h2>
+            <span className="eyebrow">{t("diveCenter.coursesEyebrow")}</span>
+            <h2 className="font-display text-4xl md:text-5xl mt-3">
+              {t("diveCenter.coursesTitle")}
+            </h2>
             <div className="gold-divider mx-auto my-6" />
           </div>
           <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
@@ -117,7 +122,7 @@ function DivePage() {
                 <div className="mt-6 flex items-end justify-between pt-5 border-t border-border">
                   <div className="font-display text-2xl text-ocean-deep">${c.price}</div>
                   <button className="text-xs uppercase tracking-[0.2em] text-gold hover:text-ocean-deep">
-                    Enquire →
+                    {t("diveCenter.enquire")}
                   </button>
                 </div>
               </article>
@@ -129,12 +134,11 @@ function DivePage() {
       <section className="py-20 md:py-28 container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
-            <span className="eyebrow">Dive Sites</span>
-            <h2 className="font-display text-4xl md:text-5xl mt-3">The legends of the Red Sea</h2>
+            <span className="eyebrow">{t("diveCenter.sitesEyebrow")}</span>
+            <h2 className="font-display text-4xl md:text-5xl mt-3">{t("diveCenter.sitesTitle")}</h2>
             <div className="gold-divider my-6" />
             <p className="text-muted-foreground mb-8 leading-relaxed">
-              Daily dive trips depart from our private marina. Equipment, transfers and a
-              fresh-cooked lunch on the boat included.
+              {t("diveCenter.sitesDesc")}
             </p>
             <ul className="space-y-5">
               {sites.map((s) => (

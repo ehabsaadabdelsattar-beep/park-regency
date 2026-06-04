@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell } from "@/components/page-shell";
 import { PageHero } from "@/components/page-hero";
+import { useTranslation } from "react-i18next";
+import i18n from "@/i18n";
 import hero from "@/assets/hero.jpg";
 import welcome from "@/assets/welcome.jpg";
 import roomSeaView from "@/assets/room-sea-view.jpg";
@@ -15,55 +17,56 @@ import pool from "@/assets/pool.jpg";
 export const Route = createFileRoute("/gallery")({
   head: () => ({
     meta: [
-      { title: "Gallery — Park Regency Sharm El Sheikh" },
+      { title: i18n.t("gallery.title") },
       {
         name: "description",
-        content:
-          "Explore the beaches, suites, restaurants, spa and gardens of Park Regency Sharm El Sheikh through our photo gallery.",
+        content: i18n.t("gallery.metaDesc"),
       },
-      { property: "og:title", content: "Park Regency Gallery" },
+      { property: "og:title", content: i18n.t("gallery.ogTitle") },
       {
         property: "og:description",
-        content: "A visual journey through the Park Regency Resort experience.",
+        content: i18n.t("gallery.ogDesc"),
       },
     ],
   }),
   component: GalleryPage,
 });
 
-const categories = [
-  "All",
-  "Beaches",
-  "Rooms",
-  "Dining",
-  "Spa",
-  "Pools",
-  "Weddings",
-  "Activities",
-] as const;
-
-const photos: { src: string; cat: string; alt: string }[] = [
-  { src: hero, cat: "Beaches", alt: "Aerial view of resort" },
-  { src: welcome, cat: "Rooms", alt: "Lobby" },
-  { src: roomSeaView, cat: "Rooms", alt: "Sea View room" },
-  { src: roomSeaFront, cat: "Rooms", alt: "Sea Front room" },
-  { src: roomSuite, cat: "Rooms", alt: "Royal Suite" },
-  { src: dining, cat: "Dining", alt: "Signature restaurant" },
-  { src: wedding, cat: "Weddings", alt: "Beach wedding" },
-  { src: diving, cat: "Activities", alt: "Diving in Red Sea" },
-  { src: spa, cat: "Spa", alt: "Spa treatment" },
-  { src: pool, cat: "Pools", alt: "Infinity pool" },
-  { src: hero, cat: "Beaches", alt: "Private beach" },
-  { src: pool, cat: "Pools", alt: "Pool deck at sunset" },
-];
-
 function GalleryPage() {
+  const { t } = useTranslation();
+
+  const categories = [
+    t("gallery.categories.all"),
+    t("gallery.categories.beaches"),
+    t("gallery.categories.rooms"),
+    t("gallery.categories.dining"),
+    t("gallery.categories.spa"),
+    t("gallery.categories.pools"),
+    t("gallery.categories.weddings"),
+    t("gallery.categories.activities"),
+  ];
+
+  const photos: { src: string; cat: string; alt: string }[] = [
+    { src: hero, cat: t("gallery.categories.beaches"), alt: "Aerial view of resort" },
+    { src: welcome, cat: t("gallery.categories.rooms"), alt: "Lobby" },
+    { src: roomSeaView, cat: t("gallery.categories.rooms"), alt: "Sea View room" },
+    { src: roomSeaFront, cat: t("gallery.categories.rooms"), alt: "Sea Front room" },
+    { src: roomSuite, cat: t("gallery.categories.rooms"), alt: "Royal Suite" },
+    { src: dining, cat: t("gallery.categories.dining"), alt: "Signature restaurant" },
+    { src: wedding, cat: t("gallery.categories.weddings"), alt: "Beach wedding" },
+    { src: diving, cat: t("gallery.categories.activities"), alt: "Diving in Red Sea" },
+    { src: spa, cat: t("gallery.categories.spa"), alt: "Spa treatment" },
+    { src: pool, cat: t("gallery.categories.pools"), alt: "Infinity pool" },
+    { src: hero, cat: t("gallery.categories.beaches"), alt: "Private beach" },
+    { src: pool, cat: t("gallery.categories.pools"), alt: "Pool deck at sunset" },
+  ];
+
   return (
     <PageShell>
       <PageHero
-        eyebrow="Gallery"
-        title="A visual journey"
-        subtitle="From sunrise on the Red Sea to candlelit dinners under the stars."
+        eyebrow={t("gallery.heroEyebrow")}
+        title={t("gallery.heroTitle")}
+        subtitle={t("gallery.heroSubtitle")}
         image={hero}
         height="sm"
       />
@@ -104,7 +107,7 @@ function GalleryPage() {
             to="/booking"
             className="inline-block px-10 py-4 bg-gold text-ocean-deep text-xs uppercase tracking-[0.22em] hover:bg-ocean-deep hover:text-white transition-colors"
           >
-            Book Your Stay
+            {t("gallery.bookStay")}
           </Link>
         </div>
       </section>

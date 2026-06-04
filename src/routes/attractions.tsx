@@ -3,7 +3,8 @@ import { PageShell } from "@/components/page-shell";
 import { PageHero } from "@/components/page-hero";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Compass, MapPin, Anchor, HelpCircle, Info } from "lucide-react";
+import i18n from "@/i18n";
+import { Compass, MapPin } from "lucide-react";
 
 import diving from "@/assets/diving.jpg";
 import dining from "@/assets/dining.jpg";
@@ -16,11 +17,10 @@ import hero from "@/assets/hero.jpg";
 export const Route = createFileRoute("/attractions")({
   head: () => ({
     meta: [
-      { title: "Local Attractions & Excursions — Park Regency Sharm El Sheikh" },
+      { title: i18n.t("attractions.title") },
       {
         name: "description",
-        content:
-          "Explore the best of Sharm El Sheikh. From the world-famous dive sites of Ras Mohammed to desert safaris and historical monasteries.",
+        content: i18n.t("attractions.metaDesc"),
       },
     ],
   }),
@@ -28,7 +28,7 @@ export const Route = createFileRoute("/attractions")({
 });
 
 interface AttractionItem {
-  category: "beaches" | "diving" | "spa" | "pools" | "entertainment" | "kids" | "sports";
+  category: string;
   title: string;
   distance: string;
   description: string;
@@ -36,94 +36,86 @@ interface AttractionItem {
   coordinates: string;
 }
 
-const items: AttractionItem[] = [
-  {
-    category: "beaches",
-    title: "Gardens Bay Private Beach",
-    distance: "Direct Access",
-    description:
-      "Our private three-tier beach offers soft sands, private cabanas, and immediate reef entry. Widely regarded as Sharm El Sheikh's most tranquil cove.",
-    img: roomSeaView,
-    coordinates: "Resort Grounds",
-  },
-  {
-    category: "diving",
-    title: "Ras Mohammed National Park",
-    distance: "40 mins by Boat",
-    description:
-      "Ranked among the top ten dive sites globally. Explore vertical coral walls, shipwrecks, and shark observatories with legendary marine biodiversity.",
-    img: diving,
-    coordinates: "Red Sea Marine Protected Area",
-  },
-  {
-    category: "diving",
-    title: "Straits of Tiran",
-    distance: "30 mins by Boat",
-    description:
-      "Home to four dramatic reef systems (Jackson, Woodhouse, Thomas, Gordon) rising from deep water, attracting turtles, barracuda, and hammerheads.",
-    img: hero,
-    coordinates: "Gulf of Aqaba Entrance",
-  },
-  {
-    category: "spa",
-    title: "Bedouin Desert Spa Stargazing",
-    distance: "25 mins away",
-    description:
-      "An authentic desert wellness experience. Enjoy hot sand therapy, customized oil massage in private luxury tents, and traditional Bedouin herbal tea under the stars.",
-    img: spa,
-    coordinates: "Sinai Desert Echo Valley",
-  },
-  {
-    category: "pools",
-    title: "Gardens Bay Lagoon Complex",
-    distance: "Direct Access",
-    description:
-      "Our landmark multi-level lagoon features high waterfalls, a cave pool, lazy river channels, and separate quiet zones for premium adult relaxation.",
-    img: pool,
-    coordinates: "Resort Center",
-  },
-  {
-    category: "entertainment",
-    title: "Soho Square Sharm El Sheikh",
-    distance: "10 mins by Shuttle",
-    description:
-      "A premier entertainment, shopping, and dining hub. Features high-end boutiques, ice skating, dancing fountains, and international restaurants.",
-    img: welcome,
-    coordinates: "Shark's Bay District",
-  },
-  {
-    category: "kids",
-    title: "Naama Bay Water Park",
-    distance: "15 mins away",
-    description:
-      "A massive kids-friendly water park featuring over 30 slides, splash grounds, wave pools, and dedicated dining zones perfect for a full family day out.",
-    img: pool,
-    coordinates: "Naama District Center",
-  },
-  {
-    category: "sports",
-    title: "Jolie Ville Championship Golf Course",
-    distance: "12 mins by Taxi",
-    description:
-      "An 18-hole par 72 championship golf course set amidst artificial lakes, offering spectacular mountain ranges and Red Sea vistas.",
-    img: dining,
-    coordinates: "Sharm El Sheikh North",
-  },
-];
-
 function AttractionsPage() {
   const { t } = useTranslation();
   const [filter, setFilter] = useState<string>("all");
 
   const categories = [
-    { id: "all", label: "All Sights" },
-    { id: "beaches", label: "Beaches" },
-    { id: "diving", label: "Diving & Snorkeling" },
-    { id: "spa", label: "Spa & Desert" },
-    { id: "pools", label: "Pool Complexes" },
-    { id: "entertainment", label: "Entertainment" },
-    { id: "kids", label: "Kids Activities" },
-    { id: "sports", label: "Sports" },
+    { id: "all", label: t("attractions.categories.all") },
+    { id: "beaches", label: t("attractions.categories.beaches") },
+    { id: "diving", label: t("attractions.categories.diving") },
+    { id: "spa", label: t("attractions.categories.spa") },
+    { id: "pools", label: t("attractions.categories.pools") },
+    { id: "entertainment", label: t("attractions.categories.entertainment") },
+    { id: "kids", label: t("attractions.categories.kids") },
+    { id: "sports", label: t("attractions.categories.sports") },
+  ];
+
+  const items: AttractionItem[] = [
+    {
+      category: "beaches",
+      title: t("attractions.items.gardensBay.title"),
+      distance: t("attractions.items.gardensBay.distance"),
+      description: t("attractions.items.gardensBay.desc"),
+      img: roomSeaView,
+      coordinates: t("attractions.items.gardensBay.coords"),
+    },
+    {
+      category: "diving",
+      title: t("attractions.items.rasMohammed.title"),
+      distance: t("attractions.items.rasMohammed.distance"),
+      description: t("attractions.items.rasMohammed.desc"),
+      img: diving,
+      coordinates: t("attractions.items.rasMohammed.coords"),
+    },
+    {
+      category: "diving",
+      title: t("attractions.items.tiran.title"),
+      distance: t("attractions.items.tiran.distance"),
+      description: t("attractions.items.tiran.desc"),
+      img: hero,
+      coordinates: t("attractions.items.tiran.coords"),
+    },
+    {
+      category: "spa",
+      title: t("attractions.items.bedouinSpa.title"),
+      distance: t("attractions.items.bedouinSpa.distance"),
+      description: t("attractions.items.bedouinSpa.desc"),
+      img: spa,
+      coordinates: t("attractions.items.bedouinSpa.coords"),
+    },
+    {
+      category: "pools",
+      title: t("attractions.items.lagoon.title"),
+      distance: t("attractions.items.lagoon.distance"),
+      description: t("attractions.items.lagoon.desc"),
+      img: pool,
+      coordinates: t("attractions.items.lagoon.coords"),
+    },
+    {
+      category: "entertainment",
+      title: t("attractions.items.soho.title"),
+      distance: t("attractions.items.soho.distance"),
+      description: t("attractions.items.soho.desc"),
+      img: welcome,
+      coordinates: t("attractions.items.soho.coords"),
+    },
+    {
+      category: "kids",
+      title: t("attractions.items.naama.title"),
+      distance: t("attractions.items.naama.distance"),
+      description: t("attractions.items.naama.desc"),
+      img: pool,
+      coordinates: t("attractions.items.naama.coords"),
+    },
+    {
+      category: "sports",
+      title: t("attractions.items.golf.title"),
+      distance: t("attractions.items.golf.distance"),
+      description: t("attractions.items.golf.desc"),
+      img: dining,
+      coordinates: t("attractions.items.golf.coords"),
+    },
   ];
 
   const filteredItems = filter === "all" ? items : items.filter((item) => item.category === filter);
@@ -131,9 +123,9 @@ function AttractionsPage() {
   return (
     <PageShell>
       <PageHero
-        eyebrow="Sinai Discoveries"
-        title="Area Attractions"
-        subtitle="Venture beyond the resort gates to discover spectacular reef systems, rich histories, and vibrant entertainment hubs."
+        eyebrow={t("attractions.heroEyebrow")}
+        title={t("attractions.heroTitle")}
+        subtitle={t("attractions.heroSubtitle")}
         image={diving}
       />
 
@@ -179,7 +171,9 @@ function AttractionsPage() {
                 </div>
 
                 <div className="p-8">
-                  <span className="eyebrow block mb-2">{att.category}</span>
+                  <span className="eyebrow block mb-2">
+                    {t(`attractions.categories.${att.category}`)}
+                  </span>
                   <h3 className="font-display text-2xl text-ocean-deep mb-3">{att.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{att.description}</p>
                 </div>
@@ -190,7 +184,7 @@ function AttractionsPage() {
                   <Compass className="h-3.5 w-3.5 text-gold" /> {att.coordinates}
                 </span>
                 <Link to="/contact" className="text-gold hover:text-ocean-deep font-semibold">
-                  Book Excursion
+                  {t("attractions.bookExcursion")}
                 </Link>
               </div>
             </article>
@@ -199,7 +193,7 @@ function AttractionsPage() {
 
         {filteredItems.length === 0 && (
           <div className="text-center py-20 text-muted-foreground">
-            No attractions found in this category.
+            {t("attractions.noAttractions")}
           </div>
         )}
       </section>
@@ -207,21 +201,17 @@ function AttractionsPage() {
       {/* CONCIERGE CALLOUT */}
       <section className="bg-ocean-deep py-20 text-white text-center">
         <div className="container mx-auto px-6 max-w-3xl">
-          <span className="eyebrow text-gold">Custom Excursion Planning</span>
+          <span className="eyebrow text-gold">{t("attractions.conciergeEyebrow")}</span>
           <h2 className="font-display text-3xl md:text-5xl mt-3 mb-6">
-            Let Our Clefs d'Or Concierge Guide You
+            {t("attractions.conciergeTitle")}
           </h2>
-          <p className="text-white/80 leading-relaxed mb-8">
-            From private yacht charters at sunrise to customized desert safaris and historical tours
-            of Mount Sinai, our certified team is dedicated to crafting bespoke itineraries tailored
-            to your exact preferences.
-          </p>
+          <p className="text-white/80 leading-relaxed mb-8">{t("attractions.conciergeText")}</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/contact"
               className="px-8 py-4 bg-gold text-ocean-deep hover:bg-white hover:text-ocean-deep transition-colors text-xs font-semibold uppercase tracking-widest"
             >
-              Contact Concierge
+              {t("attractions.contactConcierge")}
             </Link>
             <a
               href="https://wa.me/20693600000"
@@ -229,7 +219,7 @@ function AttractionsPage() {
               rel="noopener noreferrer"
               className="px-8 py-4 border border-white/40 hover:bg-white/10 transition-colors text-xs font-semibold uppercase tracking-widest inline-flex items-center justify-center gap-2"
             >
-              WhatsApp Concierge
+              {t("attractions.whatsappConcierge")}
             </a>
           </div>
         </div>

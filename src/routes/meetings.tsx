@@ -2,36 +2,29 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageShell } from "@/components/page-shell";
 import { PageHero } from "@/components/page-hero";
 import { useState } from "react";
-import { Users, Maximize2, Mic, Wifi, Calendar, CheckCircle } from "lucide-react";
+import { Users, Maximize2, Mic, Wifi, CheckCircle } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import i18n from "@/i18n";
 import welcome from "@/assets/welcome.jpg";
 import pool from "@/assets/pool.jpg";
 
 export const Route = createFileRoute("/meetings")({
   head: () => ({
     meta: [
-      { title: "Meetings & Events — Park Regency Sharm El Sheikh" },
+      { title: i18n.t("meetings.title") },
       {
         name: "description",
-        content:
-          "Flagship conference center hosting up to 700 guests across 8 venues including a 1,200 m² grand ballroom.",
+        content: i18n.t("meetings.metaDesc"),
       },
-      { property: "og:title", content: "Meetings & Events" },
-      { property: "og:description", content: "Where ambition meets occasion." },
+      { property: "og:title", content: i18n.t("meetings.ogTitle") },
+      { property: "og:description", content: i18n.t("meetings.ogDesc") },
     ],
   }),
   component: MeetingsPage,
 });
 
-const venues = [
-  { name: "Grand Ballroom", size: "1,200 m²", capacity: "700", style: "Banquet / Theatre" },
-  { name: "Royal Hall", size: "650 m²", capacity: "400", style: "Conference" },
-  { name: "Sinai Hall", size: "320 m²", capacity: "220", style: "U-Shape / Boardroom" },
-  { name: "Tiran Room", size: "180 m²", capacity: "120", style: "Classroom" },
-  { name: "Library Boardroom", size: "60 m²", capacity: "20", style: "Executive Board" },
-  { name: "Beach Pavilion", size: "Open Air", capacity: "300", style: "Cocktail / Gala" },
-];
-
 function MeetingsPage() {
+  const { t } = useTranslation();
   const [name, setName] = useState("");
   const [company, setCompany] = useState("");
   const [email, setEmail] = useState("");
@@ -46,24 +39,63 @@ function MeetingsPage() {
     setIsSubmitted(true);
   };
 
+  const venues = [
+    {
+      name: t("meetings.venues.grandBallroom.name"),
+      size: "1,200 m²",
+      capacity: "700",
+      style: t("meetings.venues.grandBallroom.style"),
+    },
+    {
+      name: t("meetings.venues.royalHall.name"),
+      size: "650 m²",
+      capacity: "400",
+      style: t("meetings.venues.royalHall.style"),
+    },
+    {
+      name: t("meetings.venues.sinaiHall.name"),
+      size: "320 m²",
+      capacity: "220",
+      style: t("meetings.venues.sinaiHall.style"),
+    },
+    {
+      name: t("meetings.venues.tiranRoom.name"),
+      size: "180 m²",
+      capacity: "120",
+      style: t("meetings.venues.tiranRoom.style"),
+    },
+    {
+      name: t("meetings.venues.library.name"),
+      size: "60 m²",
+      capacity: "20",
+      style: t("meetings.venues.library.style"),
+    },
+    {
+      name: t("meetings.venues.beach.name"),
+      size: t("meetings.venues.openAir"),
+      capacity: "300",
+      style: t("meetings.venues.beach.style"),
+    },
+  ];
+
   return (
     <PageShell>
       <PageHero
-        eyebrow="Meetings & Events"
-        title="Where ambition meets occasion"
-        subtitle="Eight venues, one flagship conference center, infinite possibility."
+        eyebrow={t("meetings.heroEyebrow")}
+        title={t("meetings.heroTitle")}
+        subtitle={t("meetings.heroSubtitle")}
         image={welcome}
       />
 
       <section className="py-20 container mx-auto px-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto mb-16">
           {[
-            ["700+", "Guests"],
-            ["8", "Venues"],
-            ["1,200m²", "Grand Ballroom"],
-            ["4K", "AV Production"],
+            ["700+", t("meetings.stats.guests")],
+            ["8", t("meetings.stats.venues")],
+            ["1,200m²", t("meetings.stats.ballroom")],
+            ["4K", t("meetings.stats.production")],
           ].map(([n, l]) => (
-            <div key={l} className="text-center">
+            <div key={l as string} className="text-center">
               <div className="font-display text-4xl text-gold">{n}</div>
               <div className="eyebrow mt-2 text-muted-foreground">{l}</div>
             </div>
@@ -78,17 +110,17 @@ function MeetingsPage() {
             className="w-full h-[460px] object-cover shadow-luxury"
           />
           <div>
-            <span className="eyebrow">Capabilities</span>
+            <span className="eyebrow">{t("meetings.capabilitiesEyebrow")}</span>
             <h2 className="font-display text-3xl md:text-4xl mt-3 text-ocean-deep">
-              Production-grade, hospitality-led
+              {t("meetings.capabilitiesTitle")}
             </h2>
             <div className="gold-divider my-6" />
             <ul className="space-y-4 text-sm text-muted-foreground">
               {[
-                { icon: Mic, label: "Full AV, lighting and live-stream production" },
-                { icon: Wifi, label: "Dedicated 1 Gbps fibre for events" },
-                { icon: Users, label: "On-site event managers and concierges" },
-                { icon: Maximize2, label: "Modular venues — break-outs to 700-person plenaries" },
+                { icon: Mic, label: t("meetings.capabilities.0") },
+                { icon: Wifi, label: t("meetings.capabilities.1") },
+                { icon: Users, label: t("meetings.capabilities.2") },
+                { icon: Maximize2, label: t("meetings.capabilities.3") },
               ].map(({ icon: Icon, label }) => (
                 <li key={label} className="flex gap-3">
                   <Icon className="h-5 w-5 text-gold shrink-0 mt-0.5" strokeWidth={1.5} />
@@ -101,16 +133,16 @@ function MeetingsPage() {
 
         {/* VENUE CAPACITY TABLE */}
         <h2 className="font-display text-3xl text-center text-ocean-deep mb-8">
-          Capacity Configuration
+          {t("meetings.capacityTitle")}
         </h2>
         <div className="overflow-x-auto border border-border mb-24 max-w-5xl mx-auto shadow-sm">
           <table className="w-full">
             <thead>
               <tr className="bg-ocean-deep text-white text-xs uppercase tracking-[0.18em] text-left">
-                <th className="py-4 px-6 font-medium">Venue</th>
-                <th className="py-4 px-6 font-medium">Size</th>
-                <th className="py-4 px-6 font-medium">Capacity</th>
-                <th className="py-4 px-6 font-medium">Style</th>
+                <th className="py-4 px-6 font-medium">{t("meetings.table.venue")}</th>
+                <th className="py-4 px-6 font-medium">{t("meetings.table.size")}</th>
+                <th className="py-4 px-6 font-medium">{t("meetings.table.capacity")}</th>
+                <th className="py-4 px-6 font-medium">{t("meetings.table.style")}</th>
               </tr>
             </thead>
             <tbody>
@@ -121,7 +153,9 @@ function MeetingsPage() {
                 >
                   <td className="py-4 px-6 font-display text-ocean-deep font-semibold">{v.name}</td>
                   <td className="py-4 px-6 text-muted-foreground">{v.size}</td>
-                  <td className="py-4 px-6 text-muted-foreground">{v.capacity} Guests</td>
+                  <td className="py-4 px-6 text-muted-foreground">
+                    {v.capacity} {t("meetings.table.guests")}
+                  </td>
                   <td className="py-4 px-6 text-muted-foreground">{v.style}</td>
                 </tr>
               ))}
@@ -137,38 +171,35 @@ function MeetingsPage() {
           {isSubmitted ? (
             <div className="text-center py-10 space-y-6">
               <CheckCircle className="h-16 w-16 text-gold mx-auto" />
-              <h3 className="font-display text-3xl text-ocean-deep">Proposal Request Received</h3>
+              <h3 className="font-display text-3xl text-ocean-deep">
+                {t("meetings.form.successTitle")}
+              </h3>
               <p className="text-muted-foreground max-w-md mx-auto leading-relaxed">
-                Thank you for contacting Park Regency. Our Senior Events Planner will review your
-                requirements and send a customized proposal package within the next 24 business
-                hours.
+                {t("meetings.form.successText")}
               </p>
               <button
                 onClick={() => setIsSubmitted(false)}
                 className="px-6 py-3 border border-border text-xs uppercase tracking-widest font-semibold hover:border-gold hover:text-gold transition-all cursor-pointer"
               >
-                Submit Another Request
+                {t("meetings.form.submitAnother")}
               </button>
             </div>
           ) : (
             <div>
               <div className="text-center max-w-xl mx-auto mb-10">
-                <span className="eyebrow">Request Proposal</span>
+                <span className="eyebrow">{t("meetings.form.eyebrow")}</span>
                 <h3 className="font-display text-2xl md:text-3xl text-ocean-deep mt-2">
-                  Plan Your Event
+                  {t("meetings.form.title")}
                 </h3>
                 <div className="gold-divider mx-auto my-4" />
-                <p className="text-xs text-muted-foreground">
-                  Provide your gathering details and our event planners will design a bespoke
-                  package for you.
-                </p>
+                <p className="text-xs text-muted-foreground">{t("meetings.form.subtitle")}</p>
               </div>
 
               <form onSubmit={handleSubmitProposal} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold block mb-1.5">
-                      Contact Name
+                      {t("meetings.form.contactName")}
                     </label>
                     <input
                       type="text"
@@ -176,19 +207,17 @@ function MeetingsPage() {
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       className="w-full bg-secondary border border-border p-3 text-xs text-foreground outline-none focus:border-gold"
-                      placeholder="Your Full Name"
                     />
                   </div>
                   <div>
                     <label className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold block mb-1.5">
-                      Company / Organization
+                      {t("meetings.form.company")}
                     </label>
                     <input
                       type="text"
                       value={company}
                       onChange={(e) => setCompany(e.target.value)}
                       className="w-full bg-secondary border border-border p-3 text-xs text-foreground outline-none focus:border-gold"
-                      placeholder="Company Name (Optional)"
                     />
                   </div>
                 </div>
@@ -196,7 +225,7 @@ function MeetingsPage() {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold block mb-1.5">
-                      Email Address
+                      {t("meetings.form.email")}
                     </label>
                     <input
                       type="email"
@@ -204,12 +233,11 @@ function MeetingsPage() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       className="w-full bg-secondary border border-border p-3 text-xs text-foreground outline-none focus:border-gold"
-                      placeholder="email@company.com"
                     />
                   </div>
                   <div>
                     <label className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold block mb-1.5">
-                      Phone Number
+                      {t("meetings.form.phone")}
                     </label>
                     <input
                       type="tel"
@@ -217,7 +245,6 @@ function MeetingsPage() {
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       className="w-full bg-secondary border border-border p-3 text-xs text-foreground outline-none focus:border-gold"
-                      placeholder="+1 (555) 000-0000"
                     />
                   </div>
                 </div>
@@ -225,7 +252,7 @@ function MeetingsPage() {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold block mb-1.5">
-                      Event Date
+                      {t("meetings.form.date")}
                     </label>
                     <input
                       type="date"
@@ -237,7 +264,7 @@ function MeetingsPage() {
                   </div>
                   <div>
                     <label className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold block mb-1.5">
-                      Estimated Guest Count
+                      {t("meetings.form.guestsCount")}
                     </label>
                     <select
                       value={guests}
@@ -255,7 +282,7 @@ function MeetingsPage() {
 
                 <div>
                   <label className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold block mb-1.5">
-                    Event Details & Technical Requirements
+                    {t("meetings.form.details")}
                   </label>
                   <textarea
                     rows={4}
@@ -263,7 +290,7 @@ function MeetingsPage() {
                     value={requirements}
                     onChange={(e) => setRequirements(e.target.value)}
                     className="w-full bg-secondary border border-border p-3 text-xs text-foreground outline-none focus:border-gold placeholder-muted-foreground/60"
-                    placeholder="Describe your layout requirements, catering needs, audio-visual specs, and lodging configurations."
+                    placeholder={t("meetings.form.detailsPlaceholder")}
                   />
                 </div>
 
@@ -271,7 +298,7 @@ function MeetingsPage() {
                   type="submit"
                   className="w-full py-4 bg-ocean-deep hover:bg-gold text-white hover:text-ocean-deep text-xs font-semibold uppercase tracking-widest transition-colors cursor-pointer"
                 >
-                  Submit Proposal Request
+                  {t("meetings.form.submitBtn")}
                 </button>
               </form>
             </div>

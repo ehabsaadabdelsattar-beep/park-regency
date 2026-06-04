@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "@tanstack/react-router";
 import { Calendar, Users, Tag } from "lucide-react";
 import { useTranslation } from "react-i18next";
@@ -6,22 +6,12 @@ import { useTranslation } from "react-i18next";
 export function BookingWidget() {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const [isSticky, setIsSticky] = useState(false);
 
   const [arrival, setArrival] = useState("");
   const [departure, setDeparture] = useState("");
   const [adults, setAdults] = useState("2");
   const [children, setChildren] = useState("0");
   const [promo, setPromo] = useState("");
-
-  useEffect(() => {
-    const handleScroll = () => {
-      // Make widget sticky after scrolling past hero height (approx 500px)
-      setIsSticky(window.scrollY > 450);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const handleCheckAvailability = (e: React.FormEvent) => {
     e.preventDefault();
@@ -43,15 +33,9 @@ export function BookingWidget() {
   return (
     <section
       id="booking-widget"
-      className={`z-40 transition-all duration-300 ${
-        isSticky
-          ? "fixed top-16 md:top-20 inset-x-0 w-full px-0 shadow-lg animate-in slide-in-from-top duration-500"
-          : "relative -mt-16 md:-mt-20 px-6"
-      }`}
+      className="z-40 transition-all duration-300 relative -mt-16 md:-mt-20 px-6"
     >
-      <div
-        className={`container mx-auto max-w-6xl bg-card border border-border shadow-luxury transition-all duration-300 ${isSticky ? "rounded-none max-w-full border-x-0" : "rounded-sm"}`}
-      >
+      <div className="container mx-auto max-w-6xl bg-card border border-border shadow-luxury transition-all duration-300 rounded-sm">
         <form
           onSubmit={handleCheckAvailability}
           className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-border"

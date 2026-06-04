@@ -1,162 +1,1108 @@
 {
   "nav": {
-    "stay": "Estancia",
-    "rooms": "Habitaciones y Suites",
-    "regencyClub": "Regency Club",
-    "offers": "Ofertas Especiales",
+    "stay": "Permanecer",
+    "rooms": "Habitaciones y suites",
+    "regencyClub": "Club de regencia",
+    "offers": "Ofertas especiales",
     "experience": "Experiencia",
     "beaches": "Playas",
     "diveCenter": "Centro de Buceo",
-    "spa": "Spa y Bienestar",
-    "virtualTour": "Tour Virtual",
-    "dining": "Gastronomía",
+    "spa": "Spa y bienestar",
+    "virtualTour": "Visita virtual",
+    "dining": "Comida",
     "celebrate": "Celebrar",
     "weddings": "Bodas",
     "meetings": "Reuniones y Eventos",
     "gallery": "Galería",
     "about": "Acerca de",
-    "aboutResort": "Acerca del Resort",
+    "aboutResort": "Acerca del complejo",
     "reviews": "Reseñas",
-    "faqs": "Preguntas Frecuentes",
-    "careers": "Empleo",
+    "faqs": "Preguntas frecuentes",
+    "careers": "Carreras",
     "contact": "Contacto",
-    "bookNow": "Reservar"
+    "bookNow": "Reserva ahora"
   },
   "booking": {
     "arrival": "Llegada",
-    "departure": "Salida",
-    "adults": "Adultos",
-    "children": "Niños",
-    "adult": "Adulto",
-    "child": "Niño",
-    "checkAvailability": "Ver Disponibilidad",
-    "bookYourStay": "Reserve su Estancia",
+    "departure": "Partida",
+    "adults": "Adultas",
+    "children": "Niñas",
+    "adult": "Adulta",
+    "child": "Niña",
+    "checkAvailability": "Consultar disponibilidad",
+    "bookYourStay": "Reserva tu estancia",
     "reservations": "Reservas",
     "steps": {
       "dates": "Fechas",
       "room": "Habitación",
-      "rate": "Tarifa",
-      "guest": "Huésped",
-      "checkout": "Pago",
+      "rate": "Tasa",
+      "guest": "Invitada",
+      "checkout": "Verificar",
       "confirmation": "Confirmación"
     },
-    "chooseDates": "Elija sus fechas",
-    "chooseRoom": "Elija su habitación",
-    "chooseRate": "Elija su tarifa",
+    "chooseDates": "Elige tus fechas",
+    "chooseRoom": "Elige tu habitación",
+    "chooseRate": "Elige tu tarifa",
     "guestInfo": "Información del huésped",
-    "reviewPayment": "Resumen y pago",
-    "fullName": "Nombre completo",
+    "reviewPayment": "Revisión y pago",
+    "fullName": "nombre completo",
     "email": "Correo electrónico",
     "phone": "Teléfono",
     "country": "País",
-    "specialRequests": "Peticiones especiales",
+    "specialRequests": "Solicitudes especiales",
     "paymentMethod": "Método de pago",
     "cardNumber": "Número de tarjeta",
-    "expiry": "Vencimiento",
+    "expiry": "Expiración",
     "cvc": "CVC",
-    "cardholderName": "Nombre del titular",
+    "cardholderName": "Nombre del titular de la tarjeta",
     "bookingSummary": "Resumen de reserva",
     "room": "Habitación",
     "view": "Vista",
-    "rate": "Tarifa",
+    "rate": "Tasa",
     "dates": "Fechas",
     "nights": "Noches",
     "night": "noche",
     "nightsPlural": "noches",
-    "guests": "Huéspedes",
-    "subtotal": "Subtotal",
+    "guests": "Invitadas",
+    "subtotal": "Total parcial",
     "taxes": "Impuestos y tasas",
     "total": "Total",
-    "from": "Desde",
+    "from": "De",
     "perNight": "/noche",
     "back": "Atrás",
     "continue": "Continuar",
-    "confirmPay": "Confirmar y Pagar",
-    "confirmed": "Reserva Confirmada",
-    "thankYou": "Gracias, {{name}}. Esperamos darle la bienvenida a Park Regency.",
+    "confirmPay": "Confirmar y pagar",
+    "confirmed": "Reserva confirmada",
+    "thankYou": "Gracias, {{nombre}}. Esperamos darle la bienvenida a Park Regency.",
     "bookingNumber": "Número de reserva",
     "downloadPdf": "Descargar PDF",
-    "emailConfirmation": "Confirmación por Correo",
-    "returnHome": "Volver al Inicio",
+    "emailConfirmation": "Confirmación por correo electrónico",
+    "returnHome": "Regresar a casa",
     "freeCancellation": "Cancelación gratuita",
     "nonRefundable": "No reembolsable"
   },
   "home": {
-    "eyebrow": "Experiencia de Resort de Lujo en el Mar Rojo",
-    "heroSub": "Donde el desierto se encuentra con el mar: un enclave de elegancia atemporal en las costas de la península del Sinaí.",
-    "exploreResort": "Explorar el Resort",
-    "welcome": "Bienvenidos",
+    "eyebrow": "Experiencia de lujo en un resort en el Mar Rojo",
+    "heroSub": "Donde el desierto se encuentra con el mar: un enclave de elegancia eterna a orillas de la península del Sinaí.",
+    "exploreResort": "Explorar complejo",
+    "welcome": "Bienvenida",
     "welcomeTitle": "Un santuario de refinada elegancia junto al mar",
-    "welcomeP1": "Situado a lo largo de un tramo privado de la costa más codiciada de Sharm El Sheikh, Park Regency es más que un resort: es un destino tejido de luz, agua y lujo discreto.",
-    "welcomeP2": "Desde el yoga al amanecer sobre la arena hasta las cenas a la luz de las velas bajo las estrellas, cada momento está modelado por un servicio intuitivo y el ritmo del Mar Rojo.",
-    "discoverMore": "Descubrir Más",
-    "yearsHospitality": "Años de Hospitalidad",
-    "theExperience": "La Experiencia",
-    "resortHighlights": "Aspectos Destacados del Resort",
+    "welcomeP1": "Ubicado a lo largo de un tramo privado de la costa más codiciada de Sharm El Sheikh, Park Regency es más que un resort: es un destino tejido con luz, agua y lujo discreto.",
+    "welcomeP2": "Desde yoga al amanecer en la arena hasta cenas a la luz de las velas bajo las estrellas, cada momento está moldeado por el servicio intuitivo y el ritmo del Mar Rojo.",
+    "discoverMore": "Descubre más",
+    "yearsHospitality": "Años de hospitalidad",
+    "theExperience": "La experiencia",
+    "resortHighlights": "Aspectos destacados del complejo",
     "highlights": {
       "beachesTitle": "Playas Privadas",
-      "beachesText": "Aguas turquesas cristalinas reservadas exclusivamente para nuestros huéspedes.",
-      "spaTitle": "Spa y Bienestar",
-      "spaText": "Rituales holísticos inspirados en la sabiduría milenaria del Sinaí.",
-      "diningTitle": "Cena de Lujo",
-      "diningText": "Siete locales exclusivos a cargo de chefs de renombre mundial.",
-      "divingTitle": "Centro de Buceo",
-      "divingText": "Descubra los legendarios arrecifes del Mar Rojo con expertos de PADI.",
-      "clubTitle": "Regency Club",
+      "beachesText": "Prístinas costas color turquesa reservadas exclusivamente para nuestros huéspedes.",
+      "spaTitle": "Spa y bienestar",
+      "spaText": "Rituales holísticos inspirados en la sabiduría eterna del Sinaí.",
+      "diningTitle": "Cenas de lujo",
+      "diningText": "Siete lugares exclusivos seleccionados por chefs de renombre mundial.",
+      "divingTitle": "Centro de buceo",
+      "divingText": "Descubre los legendarios arrecifes del Mar Rojo con expertos PADI.",
+      "clubTitle": "Club de regencia",
       "clubText": "Un enclave privado con servicio de mayordomo personal y salones exclusivos.",
-      "weddingTitle": "Lugares para Bodas",
-      "weddingText": "Ceremonias frente al mar y salones de baile para su momento más especial."
+      "weddingTitle": "Lugares para bodas",
+      "weddingText": "Ceremonias y salones de baile frente a la playa para su momento decisivo."
     },
     "accommodation": "Alojamiento",
-    "roomsSuites": "Habitaciones y Suites",
-    "viewAll": "Ver Todo",
-    "viewDetails": "Ver Detalles",
+    "roomsSuites": "Habitaciones y suites",
+    "viewAll": "Ver todo",
+    "viewDetails": "Ver detalles",
     "rooms": {
-      "seaViewName": "Habitación con Vista al Mar",
-      "seaViewDesc": "Vistas panorámicas del Mar Rojo desde un balcón privado.",
+      "seaViewName": "Habitación Vista Mar",
+      "seaViewDesc": "Panorámicas panorámicas del Mar Rojo desde un balcón privado.",
       "seaFrontName": "Habitación Frente al Mar",
-      "seaFrontDesc": "Acceso directo a la playa y vistas despejadas al océano.",
+      "seaFrontDesc": "Acceso directo a la playa y horizontes marinos despejados.",
       "suiteName": "Suite Real",
-      "suiteDesc": "Lujosos aposentos con mayordomo personal y comedor privado."
+      "suiteDesc": "Vivienda opulenta con mayordomo personal y comedor privado.",
+      "swimUpName": "Habitación Swim Up",
+      "swimUpDesc": "Sumérgete directamente en nuestra piscina tipo laguna climatizada desde tu terraza privada.",
+      "clubName": "Habitación Club Regencia",
+      "clubDesc": "Acceso al salón privado, desayuno de cortesía y conserje exclusivo.",
+      "villaName": "Villa Real",
+      "villaDesc": "Opulenta villa privada junto a un acantilado con piscina infinita privada y mayordomo disponible las 24 horas, los 7 días de la semana."
     },
-    "occupancy2A": "2 Adultos",
-    "occupancy2A1C": "2 Adultos + 1 Niño",
-    "occupancy2A2C": "2 Adultos + 2 Niños",
-    "diningEyebrow": "Gastronomía",
-    "diningTitle": "Un viaje culinario a través de los continentes",
-    "diningText": "Desde los sabores refinados de Sala Thai hasta el espíritu mediterráneo fresco de Beach House, siete restaurantes distintos celebran el arte de cenar.",
-    "exploreDining": "Explorar Gastronomía",
+    "occupancy2A": "2 adultos",
+    "occupancy2A1C": "2 Adultos + 1 Niña",
+    "occupancy2A2C": "2 adultos + 2 niños",
+    "diningEyebrow": "Comida",
+    "diningTitle": "Un viaje culinario a través de continentes",
+    "diningText": "Desde los sabores refinados de Sala Thai hasta el alegre espíritu mediterráneo de Beach House, siete lugares distintos celebran el arte de cenar.",
+    "exploreDining": "Explorar la comida",
     "experiences": "Experiencias",
-    "experiencesTitle": "Momentos diseñados por tierra y mar",
-    "experienceDiving": "Buceo y Esnórquel",
-    "experienceSpa": "Spa y Bienestar",
-    "experiencePools": "Piscinas Infinitas",
+    "experiencesTitle": "Momentos artesanales, por tierra y mar",
+    "experienceDiving": "Buceo y snorkel",
+    "experienceSpa": "Spa y bienestar",
+    "experiencePools": "Piscinas infinitas",
     "weddingsEyebrow": "Bodas y Celebraciones",
-    "weddingsTitle": "Diga \"Sí, quiero\" junto al Mar Rojo",
-    "weddingsText": "Ceremonias frente al mar, cenas a la luz de las velas y celebraciones a medida creadas por nuestro taller de bodas dedicado.",
-    "planWedding": "Planifique su Boda",
+    "weddingsTitle": "Di \"Sí, quiero\" junto al Mar Rojo",
+    "weddingsText": "Ceremonias frente a la playa, cenas a la luz de las velas y celebraciones personalizadas diseñadas por nuestro exclusivo taller de bodas.",
+    "planWedding": "Planifica tu boda",
     "meetingsEyebrow": "Reuniones y Eventos",
-    "meetingsTitle": "Donde la ambición encuentra la ocasión",
-    "meetingsText": "Un centro de conferencias líder que alberga hasta 700 invitados, con el apoyo de planificadores de eventos intuitivos y producción impecable.",
-    "guestsLabel": "Invitados",
-    "venuesLabel": "Espacios",
-    "ballroomLabel": "Salón de Baile",
-    "requestProposal": "Solicitar una Propuesta",
-    "guestReviews": "Reseñas de Huéspedes",
-    "reviewsTitle": "Voces de nuestros huéspedes"
+    "meetingsTitle": "Donde la ambición se encuentra con la ocasión",
+    "meetingsText": "Un centro de conferencias emblemático con capacidad para 700 invitados, respaldado por planificadores de eventos intuitivos y una producción perfecta.",
+    "guestsLabel": "Invitadas",
+    "venuesLabel": "Lugares",
+    "ballroomLabel": "Salón de baile",
+    "requestProposal": "Solicitar una propuesta",
+    "guestReviews": "Comentarios de huéspedes",
+    "reviewsTitle": "Voces de nuestras invitadas",
+    "occupancyVilla": "6 adultos + 3 niños",
+    "testimonials": {
+      "isabella": {
+        "name": "Isabella m.",
+        "country": "Italia",
+        "text": "La semana más mágica de nuestras vidas. Cada detalle, desde el servicio de mayordomo privado hasta las cenas al atardecer con vistas al Mar Rojo, fue impecable."
+      },
+      "james": {
+        "name": "James R.",
+        "country": "Reino Unido",
+        "text": "Una auténtica experiencia 5 estrellas. El salón del Regency Club por sí solo vale la pena el viaje, y el buceo en el arrecife fue de clase mundial."
+      },
+      "hana": {
+        "name": "Hana K.",
+        "country": "Alemania",
+        "text": "Puro lujo sin pretensiones. Los rituales del spa fueron transformadores y la hospitalidad se sintió profundamente personal."
+      },
+      "alexei": {
+        "name": "Alexéi V.",
+        "country": "Kazajstán",
+        "text": "Opciones gastronómicas excepcionales, hermosas bahías de playa y un personal muy servicial. La Villa Real superó todas las expectativas."
+      }
+    },
+    "diningFeatures": [
+      "Sala Thai · Auténtica gastronomía Royal Thai",
+      "Casa de playa · Parrilla mediterránea frente al mar",
+      "Principales · Estaciones Dinámicas Internacionales de Buffet en Vivo",
+      "Sunset Bar y Terraza · Cócteles Artesanales y Shisha Lounge"
+    ],
+    "locationEyebrow": "Ubicación del complejo",
+    "locationTitle": "Bahía de los jardines, Sinaí",
+    "locationDesc": "Convenientemente ubicado a solo 10 minutos del aeropuerto internacional de Sharm El Sheikh (SSH) y a 15 minutos del distrito central de Naama Bay.",
+    "directions": "Direcciones a través de Google Maps →",
+    "learnMore": "Más información"
   },
   "footer": {
-    "tagline": "Un referente de hospitalidad de lujo en las costas del Mar Rojo, donde la elegancia atemporal se une a experiencias inolvidables en Gardens Bay, Sharm El Sheikh.",
+    "tagline": "Un hito de hospitalidad de lujo a orillas del Mar Rojo, donde la elegancia eterna se combina con experiencias inolvidables en Gardens Bay, Sharm El Sheikh.",
     "rating": "Calificado con 4.6 en TripAdvisor",
     "explore": "Explorar",
     "information": "Información",
     "contact": "Contacto",
-    "rights": "Todos los derechos reservados.",
+    "rights": "Reservados todos los derechos.",
     "privacy": "Privacidad",
-    "terms": "Condiciones"
+    "terms": "Términos"
   },
   "common": {
     "selectLanguage": "Seleccionar idioma",
     "selectCurrency": "Seleccionar moneda"
+  },
+  "about": {
+    "title": "Acerca de",
+    "metaDesc": "Un hito de la hospitalidad del Mar Rojo desde 1991: 35 años de lujo refinado en Gardens Bay, Sharm El Sheikh.",
+    "ogTitle": "Acerca del parque",
+    "ogDesc": "Nuestra historia, nuestros valores, nuestra promesa.",
+    "heroEyebrow": "Acerca de",
+    "heroTitle": "Un hito del Mar Rojo",
+    "heroSubtitle": "Desde 1991, un tranquilo pionero del lujo en Sharm El Sheikh.",
+    "ourStory": "Nuestra historia",
+    "storyTitle": "35 años de refinada hospitalidad",
+    "storyP1": "Park Regency abrió sus puertas en 1991 como uno de los primeros complejos turísticos de verdadero lujo en la península del Sinaí. Tres décadas después, seguimos siendo una empresa familiar, guiados por la misma creencia de que un servicio silenciosamente excelente es el lujo más raro de todos.",
+    "storyP2": "Hoy en día, Park Regency se extiende a lo largo de 22 hectáreas de playa en Gardens Bay, con 344 habitaciones y suites, tres playas privadas, siete restaurantes y un centro de conferencias emblemático.",
+    "ourValues": "Nuestras Valores",
+    "valuesTitle": "Lo que representamos",
+    "values": {
+      "intuitiveService": "Servicio intuitivo",
+      "intuitiveServiceText": "Anticipamos, nunca interrumpimos. Servicio sentido, nunca visto.",
+      "craftsmanship": "Artesanía",
+      "craftsmanshipText": "Desde el ladrillo de nuestros arcos hasta el revestimiento de cada hilada.",
+      "sustainability": "Sostenibilidad",
+      "sustainabilityText": "Un programa funcional de conservación de arrecifes y energía 100% renovable para 2030.",
+      "community": "Comunidad",
+      "communityText": "El ochenta por ciento de nuestro equipo proviene de la región del Sinaí a la que con orgullo llamamos hogar."
+    },
+    "beginStory": "Comienza tu historia con nosotras",
+    "bookStay": "Reserva tu estancia"
+  },
+  "attractions": {
+    "title": "Atracciones locales y excursiones: Park Regency Sharm El Sheikh",
+    "metaDesc": "Explora lo mejor de Sharm El Sheikh. Desde los mundialmente famosos sitios de buceo de Ras Mohammed hasta safaris por el desierto y monasterios históricos.",
+    "heroEyebrow": "Descubrimientos del Sinaí",
+    "heroTitle": "Atracciones del área",
+    "heroSubtitle": "Aventúrese más allá de las puertas del resort para descubrir espectaculares sistemas de arrecifes, ricas historias y vibrantes centros de entretenimiento.",
+    "categories": {
+      "all": "Todos los lugares de interés",
+      "beaches": "Playas",
+      "diving": "Buceo y snorkel",
+      "spa": "Spa y Desierto",
+      "pools": "Complejos de piscinas",
+      "entertainment": "Entretenimiento",
+      "kids": "Actividades para niños",
+      "sports": "Deportes"
+    },
+    "items": {
+      "gardensBay": {
+        "title": "Playa privada de la bahía de los jardines",
+        "distance": "Acceso directo",
+        "desc": "Nuestra playa privada de tres niveles ofrece arenas suaves, cabañas privadas y entrada inmediata al arrecife. Ampliamente considerada como la cala más tranquila de Sharm El Sheikh.",
+        "coords": "Terrenos del complejo"
+      },
+      "rasMohammed": {
+        "title": "Parque Nacional Ras Mohammed",
+        "distance": "40 minutos en barco",
+        "desc": "Clasificado entre los diez mejores sitios de buceo a nivel mundial. Explore paredes verticales de coral, naufragios y observatorios de tiburones con una biodiversidad marina legendaria.",
+        "coords": "Área Marina Protegida del Mar Rojo"
+      },
+      "tiran": {
+        "title": "Estrecho de Tirán",
+        "distance": "30 minutos en barco",
+        "desc": "Hogar de cuatro espectaculares sistemas de arrecifes (Jackson, Woodhouse, Thomas, Gordon) que se elevan desde aguas profundas y atraen tortugas, barracudas y tiburones martillo.",
+        "coords": "Entrada al Golfo de Aqaba"
+      },
+      "bedouinSpa": {
+        "title": "Beduino Desierto Spa Observación de Estrellas",
+        "distance": "25 minutos de distancia",
+        "desc": "Una auténtica experiencia de bienestar en el desierto. Disfrute de la terapia con arena caliente, un masaje con aceite personalizado en tiendas de campaña privadas de lujo y un té de hierbas tradicional beduino bajo las estrellas.",
+        "coords": "Valle del eco del desierto del Sinaí"
+      },
+      "lagoon": {
+        "title": "Complejo de la laguna Gardens Bay",
+        "distance": "Acceso directo",
+        "desc": "Nuestra emblemática laguna de varios niveles cuenta con cascadas altas, una piscina en una cueva, canales de ríos lentos y zonas tranquilas separadas para una relajación premium para adultos.",
+        "coords": "Centro turístico"
+      },
+      "soho": {
+        "title": "Plaza Soho Sharm El Sheikh",
+        "distance": "10 minutos en transporte",
+        "desc": "Un centro de entretenimiento, compras y restaurantes de primer nivel. Cuenta con boutiques de alta gama, patinaje sobre hielo, fuentes danzantes y restaurantes internacionales.",
+        "coords": "Distrito de Shark's Bay"
+      },
+      "naama": {
+        "title": "Parque acuático de la bahía de Naama",
+        "distance": "15 minutos de distancia",
+        "desc": "Un enorme parque acuático apto para niños que cuenta con más de 30 toboganes, áreas de chapoteo, piscinas de olas y zonas exclusivas para comer, perfectas para un día completo en familia.",
+        "coords": "Centro del distrito de Naama"
+      },
+      "golf": {
+        "title": "Campo de golf de campeonato Jolie Ville",
+        "distance": "12 minutos en taxi",
+        "desc": "Un campo de golf profesional de 18 hoyos, par 72, ubicado entre lagos artificiales, que ofrece espectaculares cadenas montañosas y vistas del Mar Rojo.",
+        "coords": "Sharm El Sheikh Norte"
+      }
+    },
+    "bookExcursion": "Reservar Excursión",
+    "noAttractions": "No se encontraron atracciones en esta categoría.",
+    "conciergeEyebrow": "Planificación de excursiones personalizada",
+    "conciergeTitle": "Deje que nuestro conserje Clefs d'Or le guíe",
+    "conciergeText": "Desde alquileres de yates privados al amanecer hasta safaris personalizados por el desierto y recorridos históricos por el Monte Sinaí, nuestro equipo certificado se dedica a crear itinerarios personalizados adaptados a sus preferencias exactas.",
+    "contactConcierge": "Contactar con conserjería",
+    "whatsappConcierge": "Conserjería WhatsApp"
+  },
+  "beaches": {
+    "title": "Playas privadas — Park Regency Sharm El Sheikh",
+    "metaDesc": "Tres playas privadas a orillas de Gardens Bay: desde calas familiares hasta santuarios solo para adultos.",
+    "ogTitle": "Playas Privadas",
+    "ogDesc": "Arena fina como el polvo, agua turquesa, coral de primera categoría.",
+    "heroEyebrow": "Las Playas",
+    "heroTitle": "Tres costas, un Mar Rojo",
+    "heroSubtitle": "Un kilómetro privado de costa reservado exclusivamente para nuestras huéspedes.",
+    "items": {
+      "main": {
+        "name": "Playa principal",
+        "focus": "Familia",
+        "text": "Una amplia media luna de arena dorada con un paseo sombreado, una cafetería frente a la playa y una suave entrada al arrecife adecuada para todas las edades.",
+        "allDay": "servicio todo el dia",
+        "cabanas": "Cabañas",
+        "lifeguard": "salvavidas"
+      },
+      "sunset": {
+        "name": "Cala del atardecer",
+        "focus": "Sólo adultos",
+        "text": "Un tranquilo enclave solo para adultos con cabañas, atento servicio de playa y un bar dedicado a los rituales del atardecer."
+      },
+      "reef": {
+        "name": "Bahía del arrecife",
+        "focus": "Snorkel y buceo",
+        "text": "El arrecife del complejo comienza a pocos pasos de la orilla: un acuario viviente para buceadores y buceadores principiantes."
+      }
+    }
+  },
+  "careers": {
+    "title": "Carreras — Park Regency Sharm El Sheikh",
+    "metaDesc": "Únase a la familia Park Regency. Posiciones abiertas en hotelería, F&B, spa y gestión.",
+    "ogTitle": "Carreras en Park Regency",
+    "ogDesc": "Desarrolla tu carrera en uno de los principales complejos turísticos de lujo del Mar Rojo.",
+    "heroEyebrow": "Carreras",
+    "heroTitle": "Construye tu historia con nosotras",
+    "heroSubtitle": "Una carrera en Park Regency es un oficio que se refina todos los días, al servicio de lo extraordinario.",
+    "openPositions": "Posiciones abiertas",
+    "nowHiring": "Ahora contratando",
+    "notSeeRole": "¿No ves tu papel?",
+    "sendCv": "Siempre estamos interesados ​​en conocer talentos excepcionales. Envía tu CV a nuestro equipo de Personas y Cultura."
+  },
+  "contact": {
+    "title": "Contacto — Park Regency Sharm El Sheikh",
+    "metaDesc": "Póngase en contacto con nuestros equipos de reservas, eventos o conserjería. Situado en Gardens Bay, Sharm El Sheikh.",
+    "ogTitle": "Contacte a Park Regencia",
+    "ogDesc": "Esperamos darle la bienvenida.",
+    "heroEyebrow": "Contacto",
+    "heroTitle": "Esperamos darle la bienvenida",
+    "heroSubtitle": "Nuestro equipo está disponible 24 horas al día, 7 días a la semana para planificar cada detalle.",
+    "getInTouch": "Ponte en contacto",
+    "addressLabel": "DIRECCIÓN",
+    "address": "Bahía de los jardines, Sharm El Sheikh \nSinaí del Sur, Egipto",
+    "reservationsLabel": "Reservas",
+    "emailLabel": "Correo electrónico",
+    "airportLabel": "Enlace al aeropuerto",
+    "airportDesc": "A 15 minutos del aeropuerto internacional de Sharm El Sheikh (SSH)",
+    "chatEyebrow": "Asistencia de chat en vivo",
+    "chatDesc": "Chatee directamente con nuestra recepción abierta las 24 horas, los 7 días de la semana para obtener asistencia inmediata, verificación de reserva de villa o coordenadas de transferencia.",
+    "chatBtn": "Chatea en whatsapp",
+    "sendMessage": "enviar un mensaje",
+    "firstName": "Nombre de pila",
+    "lastName": "Apellido",
+    "emailInput": "Correo electrónico",
+    "phoneInput": "Teléfono",
+    "subject": "Sujeta",
+    "subjects": {
+      "reservation": "Reserva",
+      "wedding": "Boda",
+      "meeting": "Reunión / Evento",
+      "concierge": "Conserje",
+      "other": "Otra"
+    },
+    "messageLabel": "Mensaje",
+    "sendBtn": "Enviar mensaje",
+    "successMsg": "¡Mensaje enviado exitosamente! Un agente de conserjería responderá en breve."
+  },
+  "diveCenter": {
+    "title": "Centro de buceo — Park Regency Sharm El Sheikh",
+    "metaDesc": "Centro de buceo PADI 5 estrellas con viajes diarios a Ras Mohammed, la isla Tiran y el pecio SS Thistlegorm.",
+    "ogTitle": "Centro de buceo Park Regency",
+    "ogDesc": "Descubre los legendarios arrecifes del Mar Rojo con expertos PADI.",
+    "heroEyebrow": "Centro de Buceo",
+    "heroTitle": "Debajo de la superficie, otro mundo.",
+    "heroSubtitle": "Un centro de buceo PADI 5 estrellas a las puertas de los mejores arrecifes del mundo.",
+    "padi": "PADI 5 estrellas",
+    "safety": "Seguridad ante todo",
+    "multilingual": "Instructores multilingües",
+    "coursesEyebrow": "Cursos",
+    "coursesTitle": "Del primer aliento a profesional",
+    "enquire": "Consultar →",
+    "courses": {
+      "discover": {
+        "title": "Descubre el buceo",
+        "level": "Principiante",
+        "duration": "Medio dia",
+        "text": "Intente bucear en la seguridad de nuestra bahía privada con un instructor PADI."
+      },
+      "openWater": {
+        "title": "Curso de aguas abiertas",
+        "level": "Proceso de dar un título",
+        "duration": "4 dias",
+        "text": "Conviértete en un buceador certificado con teoría, sesiones en piscina y cuatro inmersiones en aguas abiertas."
+      },
+      "advanced": {
+        "title": "Aguas Abiertas Avanzada",
+        "level": "Avanzada",
+        "duration": "2 dias",
+        "text": "Amplíe sus habilidades con navegación profunda y tres inmersiones especializadas."
+      },
+      "rescue": {
+        "title": "Buceadora de rescate",
+        "level": "camino profesional",
+        "duration": "3 dias",
+        "text": "Prepárese para cualquier escenario submarino con escenarios de rescate y planificación de emergencias."
+      }
+    },
+    "sitesEyebrow": "Sitios de buceo",
+    "sitesTitle": "Las leyendas del Mar Rojo",
+    "sitesDesc": "Los viajes de buceo diarios salen desde nuestro puerto deportivo privado. Equipo, traslados y almuerzo recién preparado en el barco incluidos.",
+    "sites": {
+      "rasM": {
+        "name": "Ras Mohammed",
+        "text": "El primer parque nacional de Egipto: paredes escarpadas y jardines de corales blandos."
+      },
+      "tiran": {
+        "name": "Isla de Tirán",
+        "text": "Cuatro arrecifes legendarios en el Estrecho de Tirán repletos de tiburones de arrecife."
+      },
+      "thistlegorm": {
+        "name": "SS Thistlegorm",
+        "text": "Pecio británico de la Segunda Guerra Mundial: uno de los sitios de buceo más famosos del mundo."
+      },
+      "shark": {
+        "name": "Tiburón y arrecife Yolanda",
+        "text": "Carga de baños y tortugas en una sola inmersión: surrealista e inolvidable."
+      }
+    }
+  },
+  "faqs": {
+    "title": "Preguntas frecuentes — Park Regency Sharm El Sheikh",
+    "metaDesc": "Respuestas a las preguntas más comunes sobre tu estadía: check-in, traslados, niños, mascotas, Wi-Fi y estacionamiento.",
+    "ogTitle": "Preguntas frecuentes",
+    "ogDesc": "Planifica tu estancia con confianza.",
+    "heroEyebrow": "Preguntas frecuentes",
+    "heroTitle": "Preguntas frecuentes",
+    "heroSubtitle": "Todo lo que necesitas saber antes de tu estancia.",
+    "cats": {
+      "arrival": "Llegada y salida",
+      "families": "Familias y mascotas",
+      "property": "En la propiedad",
+      "reservations": "Reservas"
+    },
+    "items": {
+      "q1": "¿Cuáles son sus horarios de check-in y check-out?",
+      "a1": "Entrada a partir de las 14:00, salida a las 12:00. El check-in temprano y el check-out tardío están disponibles sujetos a la ocupación y pueden ser gratuitos para los huéspedes del Regency Club.",
+      "q2": "¿Ofrecen traslados al aeropuerto?",
+      "a2": "Sí, se pueden organizar traslados privados con chofer desde el Aeropuerto Internacional de Sharm El Sheikh (SSH) por $ 45 por automóvil (solo ida). Solicitar con 48 horas de antelación.",
+      "q3": "¿Cuál es la política de sus hijos?",
+      "a3": "Los niños de todas las edades son bienvenidos. Los niños menores de 6 años se alojan gratis en la habitación de sus padres; Los niños de 6 a 12 años reciben un 50% de descuento. Un club infantil gratuito funciona todos los días para edades de 4 a 12 años.",
+      "q4": "¿Se permiten mascotas?",
+      "a4": "No podemos aceptar mascotas en el resort, con la excepción de los animales de servicio registrados.",
+      "q5": "¿Está incluido el Wi-Fi?",
+      "a5": "Sí, hay Wi-Fi de alta velocidad gratuito disponible en todo el complejo.",
+      "q6": "¿Hay estacionamiento disponible?",
+      "a6": "Sí, hay estacionamiento sin asistencia y valet parking de cortesía disponibles para todos los huéspedes.",
+      "q7": "¿Tienes cambio de moneda?",
+      "a7": "Sí, nuestra recepción ofrece cambio de divisas importantes. También aceptamos USD, EUR, GBP, EGP y SAR.",
+      "q8": "¿Cuál es su política de cancelación?",
+      "a8": "Las cancelaciones realizadas al menos 7 días antes de la llegada son totalmente reembolsables. Las tarifas no reembolsables están claramente marcadas en el momento de la reserva.",
+      "q9": "¿Puedo modificar mi reserva?",
+      "a9": "Sí, las reservas se pueden modificar hasta 7 días antes de la llegada. Comuníquese con nuestro equipo de reservas para cambios."
+    }
+  },
+  "gallery": {
+    "title": "Galería — Park Regency Sharm El Sheikh",
+    "metaDesc": "Explore las playas, suites, restaurantes, spa y jardines de Park Regency Sharm El Sheikh a través de nuestra galería de fotos.",
+    "ogTitle": "Galería Park Regency",
+    "ogDesc": "Un viaje visual a través de la experiencia Park Regency Resort.",
+    "heroEyebrow": "Galería",
+    "heroTitle": "Un viaje visual",
+    "heroSubtitle": "Desde el amanecer en el Mar Rojo hasta cenas a la luz de las velas bajo las estrellas.",
+    "categories": {
+      "all": "Toda",
+      "beaches": "Playas",
+      "rooms": "Alojamiento",
+      "dining": "Comida",
+      "spa": "Spa",
+      "pools": "Quinielas",
+      "weddings": "Bodas",
+      "activities": "Actividades"
+    },
+    "bookStay": "Reserva tu estancia"
+  },
+  "meetings": {
+    "title": "Reuniones y eventos — Park Regency Sharm El Sheikh",
+    "metaDesc": "Centro de conferencias emblemático con capacidad para 700 invitados en 8 sedes, incluido un gran salón de baile de 1200 m².",
+    "ogTitle": "Reuniones y Eventos",
+    "ogDesc": "Donde la ambición se encuentra con la ocasión.",
+    "heroEyebrow": "Reuniones y Eventos",
+    "heroTitle": "Donde la ambición se encuentra con la ocasión",
+    "heroSubtitle": "Ocho sedes, un centro de conferencias emblemático, posibilidades infinitas.",
+    "stats": {
+      "guests": "Invitadas",
+      "venues": "Lugares",
+      "ballroom": "Gran salón de baile",
+      "production": "Producción audiovisual"
+    },
+    "capabilitiesEyebrow": "Capacidades",
+    "capabilitiesTitle": "Grado de producción, dirigido por la hostelería",
+    "capabilities": [
+      "Producción completa de AV, iluminación y transmisión en vivo",
+      "Fibra dedicada de 1 Gbps para eventos",
+      "Gestores de eventos y conserjes en el lugar",
+      "Sedes modulares: desde grupos hasta sesiones plenarias de 700 personas"
+    ],
+    "capacityTitle": "Configuración de capacidad",
+    "table": {
+      "venue": "Evento",
+      "size": "Tamaño",
+      "capacity": "Capacidad",
+      "style": "Estilo",
+      "guests": "Invitadas"
+    },
+    "venues": {
+      "grandBallroom": {
+        "name": "Gran salón de baile",
+        "style": "Banquete / Teatro"
+      },
+      "royalHall": {
+        "name": "Salón Real",
+        "style": "Conferencia"
+      },
+      "sinaiHall": {
+        "name": "Salón del Sinaí",
+        "style": "Forma de U / Sala de juntas"
+      },
+      "tiranRoom": {
+        "name": "Habitación Tiran",
+        "style": "Aula"
+      },
+      "library": {
+        "name": "Sala de juntas de la biblioteca",
+        "style": "Junta Ejecutiva"
+      },
+      "beach": {
+        "name": "Pabellón de la playa",
+        "style": "Cóctel / Gala"
+      },
+      "openAir": "Aire libre"
+    },
+    "form": {
+      "successTitle": "Solicitud de propuesta recibida",
+      "successText": "Gracias por contactar a Park Regency. Nuestro planificador de eventos para personas mayores revisará sus requisitos y le enviará un paquete de propuesta personalizado dentro de las próximas 24 horas hábiles.",
+      "submitAnother": "Enviar otra solicitud",
+      "eyebrow": "Solicitar propuesta",
+      "title": "Planifica tu evento",
+      "subtitle": "Proporcione los detalles de su reunión y nuestros planificadores de eventos diseñarán un paquete personalizado para usted.",
+      "contactName": "Nombre de contacto",
+      "company": "Empresa / Organización",
+      "email": "Dirección de correo electrónico",
+      "phone": "Número de teléfono",
+      "date": "Fecha del evento",
+      "guestsCount": "Número estimado de invitados",
+      "details": "Detalles del evento y requisitos técnicos",
+      "detailsPlaceholder": "Describa sus requisitos de diseño, necesidades de catering, especificaciones audiovisuales y configuraciones de alojamiento.",
+      "submitBtn": "Enviar solicitud de propuesta"
+    }
+  },
+  "offers": {
+    "title": "Ofertas especiales — Park Regency Sharm El Sheikh",
+    "metaDesc": "Paquetes exclusivos: ofertas de escapada de verano, luna de miel, familia, larga estancia y reserva anticipada en Park Regency Sharm El Sheikh.",
+    "ogTitle": "Ofertas especiales en Park Regency",
+    "ogDesc": "Ahorre más en su estancia de lujo en el Mar Rojo.",
+    "heroEyebrow": "Ofertas especiales",
+    "heroTitle": "Paquetes exclusivos, hechos para ti",
+    "heroSubtitle": "Ofertas cuidadosamente seleccionadas según las estaciones, desde lunas de miel hasta escapadas familiares.",
+    "from": "De",
+    "night": "/noche",
+    "book": "Libro",
+    "items": {
+      "summer": {
+        "tag": "Estacional",
+        "title": "escapada de verano",
+        "save": "Ahorra 25%",
+        "desc": "Combata el calor con días bañados por el sol junto al Mar Rojo, desayuno diario y un cóctel de cortesía.",
+        "bullets": [
+          "Desayuno diario para dos",
+          "Cóctel de bienvenida",
+          "salida tardía",
+          "20% de descuento en spa"
+        ]
+      },
+      "honeymoon": {
+        "tag": "romance",
+        "title": "Paquete de luna de miel",
+        "save": "Inclusiones de bonificación",
+        "desc": "Comience su estadía con una cobertura de pétalos de rosa, champán y una cena privada a la luz de las velas en la playa.",
+        "bullets": [
+          "mínimo 5 noches",
+          "Cena privada en la playa.",
+          "Ritual de spa en pareja",
+          "Upgrade de suite sujeto a disponibilidad"
+        ]
+      },
+      "family": {
+        "tag": "Familias",
+        "title": "Paquete Familiar",
+        "save": "Las niñas se quedan y comen gratis",
+        "desc": "Habitaciones comunicadas, club infantil supervisado y actividades familiares en el arrecife.",
+        "bullets": [
+          "2 niños menores de 12 años gratis",
+          "Club infantil diario",
+          "Sesión de snorkel en familia",
+          "Cabaña junto a la piscina"
+        ]
+      },
+      "longStay": {
+        "tag": "Extendida",
+        "title": "Oferta Larga Estancia",
+        "save": "Quédate 7, paga 5",
+        "desc": "Instálese. Dos noches gratis cuando reserva una semana o más, con servicio de mayordomo y lavandería semanal.",
+        "bullets": [
+          "Mínimo 7 noches",
+          "Dos noches gratis",
+          "lavandería semanal",
+          "Conserje personal"
+        ]
+      },
+      "early": {
+        "tag": "Planifique con anticipación",
+        "title": "Reserva Anticipada",
+        "save": "Ahorra 30%",
+        "desc": "Reserve con más de 60 días de antelación y disfrute de nuestra mejor tarifa disponible además de media pensión diaria.",
+        "bullets": [
+          "avance de 60 días",
+          "Media pensión incluida",
+          "Cancelación gratuita",
+          "Mejor tarifa garantizada"
+        ]
+      },
+      "wellness": {
+        "tag": "Bienestar",
+        "title": "Retiro de bienestar",
+        "save": "Crédito de spa $200",
+        "desc": "Yoga diario, un viaje de bienestar personalizado y un crédito de spa de $200 por estadía.",
+        "bullets": [
+          "Yoga y meditación diarios",
+          "Crédito de spa de $200",
+          "Desayuno de bienestar",
+          "Clases de aquafitness"
+        ]
+      }
+    }
+  },
+  "regencyClub": {
+    "title": "Club Regency — Park Regency Sharm El Sheikh",
+    "metaDesc": "Un enclave exclusivo con salón privado, servicio de mayordomo y momentos culinarios seleccionados durante todo el día.",
+    "ogTitle": "El club de la regencia",
+    "ogDesc": "Un hotel privado dentro del hotel.",
+    "heroEyebrow": "Club de regencia",
+    "heroTitle": "Un hotel privado dentro del hotel.",
+    "heroSubtitle": "Un enclave reservado para quienes valoran el privilegio de menos.",
+    "privilegeEyebrow": "El privilegio",
+    "privilegeTitle": "Donde cada detalle te anticipa",
+    "privilegeP1": "El Regency Club ocupa los pisos más codiciados del resort, con vistas panorámicas del Mar Rojo y acceso a un salón privado que fluye desde el amanecer hasta el anochecer.",
+    "privilegeP2": "Desde el momento de su llegada, un mayordomo personal se encarga de su estadía, desde su elección de almohada preferida hasta una cena a la luz de las velas en su terraza.",
+    "privilegesEyebrow": "Privilegios",
+    "privilegesTitle": "La experiencia del Club Regencia",
+    "reserve": "Reserva una Suite Club",
+    "benefits": {
+      "checkin": {
+        "title": "Registro privado",
+        "text": "Recibido en un salón exclusivo con un saludador personal y refrigerios."
+      },
+      "butler": {
+        "title": "Mayordomo personal",
+        "text": "Un mayordomo de 24 horas se ocupa del embalaje, las reservas y las preferencias personales."
+      },
+      "lounge": {
+        "title": "Salón todo el día",
+        "text": "Desayuno continental, té de la tarde, entremeses y copas por la noche."
+      },
+      "bar": {
+        "title": "Barra libre",
+        "text": "Licores premium, vinos finos y cócteles exclusivos durante todo el día."
+      },
+      "spa": {
+        "title": "Privilegios del spa",
+        "text": "Acceso gratuito al spa y reserva prioritaria de tratamientos."
+      },
+      "flexible": {
+        "title": "Estancia flexible",
+        "text": "Early check-in, late check-out y planchado de prendas de cortesía."
+      }
+    }
+  },
+  "reviews": {
+    "title": "Comentarios de huéspedes — Park Regency Sharm El Sheikh",
+    "metaDesc": "Lea reseñas auténticas de nuestros huéspedes en TripAdvisor, Google y Facebook.",
+    "ogTitle": "Comentarios de huéspedes",
+    "ogDesc": "Miles de invitados, un veredicto común: lujo bien hecho.",
+    "heroEyebrow": "Comentarios de huéspedes",
+    "heroTitle": "Voces de nuestras invitadas",
+    "heroSubtitle": "Miles de estancias. Un veredicto consistente.",
+    "reviewsCount": "opiniones",
+    "readAll": "Leer todo"
+  },
+  "spa": {
+    "title": "Spa y bienestar — Park Regency Sharm El Sheikh",
+    "metaDesc": "Un viaje de spa holístico inspirado en el Sinaí: rituales de hammam, masajes exclusivos y programas de bienestar personalizados.",
+    "ogTitle": "Spa y bienestar",
+    "ogDesc": "Restaura mente, cuerpo y espíritu junto al Mar Rojo.",
+    "heroEyebrow": "Spa y bienestar",
+    "heroTitle": "Un santuario para el cuerpo y el espíritu.",
+    "heroSubtitle": "Rituales holísticos extraídos de la sabiduría eterna del Sinaí.",
+    "sanctuaryEyebrow": "El Santuario",
+    "sanctuaryTitle": "Doce salas de tratamiento. Una filosofía.",
+    "sanctuaryP1": "Nuestro spa se extiende sobre 2.000 m² de mármol, una luz suave y el silencioso silencio del agua corriente. Doce salas de tratamiento, un hammam tradicional, un circuito de hidroterapia y una piscina cubierta climatizada forman la base de cada viaje.",
+    "sanctuaryP2": "Cada ritual comienza con una consulta privada y finaliza con una infusión de hierbas en la terraza.",
+    "treatmentsEyebrow": "Tratos",
+    "treatmentsTitle": "Rituales característicos",
+    "bookTreatment": "Libro de tratamiento →",
+    "treatments": {
+      "hammam": {
+        "name": "Ritual del hammam del Sinaí",
+        "text": "Vapor, exfoliación y limpieza con jabón negro arraigados en una tradición egipcia centenaria."
+      },
+      "aroma": {
+        "name": "Masaje de aromaterapia",
+        "text": "Mezcla de aceites esenciales personalizada con técnicas suecas y de tejido profundo."
+      },
+      "salt": {
+        "name": "Resplandor de sal del Mar Rojo",
+        "text": "Exfoliante rico en minerales seguido de una envoltura hidratante y un enjuague tipo lluvia."
+      },
+      "couples": {
+        "name": "Retiro de parejas",
+        "text": "Suite privada con rituales de lado a lado, champán y baño a la luz de las velas."
+      }
+    }
+  },
+  "virtualTour": {
+    "title": "Visita virtual — Park Regency Sharm El Sheikh",
+    "metaDesc": "Ingrese a Park Regency con nuestro recorrido virtual inmersivo de 360°: habitaciones, playas, restaurantes y spa.",
+    "ogTitle": "Visita virtual de 360°",
+    "ogDesc": "Experimente el resort antes de llegar.",
+    "heroEyebrow": "Visita virtual",
+    "heroTitle": "Entra en Park Regency",
+    "heroSubtitle": "Pasee por nuestras playas, suites y restaurantes en una inmersión de 360°.",
+    "launch": "Lanzamiento Tour 360°",
+    "details": "12 escenas · Resolución 4K",
+    "scenes": {
+      "beach": "Playa principal",
+      "suite": "Suite Real",
+      "pool": "Piscina infinita",
+      "dining": "Sala tailandesa",
+      "spa": "Recepción del spa"
+    }
+  },
+  "weddings": {
+    "title": "Bodas — Park Regency Sharm El Sheikh",
+    "metaDesc": "Ceremonias frente a la playa, recepciones en salones de baile y escapadas íntimas diseñadas por nuestro taller de bodas.",
+    "ogTitle": "Bodas en Park Regency",
+    "ogDesc": "Di \"Sí, quiero\" junto al Mar Rojo.",
+    "heroEyebrow": "Bodas y Celebraciones",
+    "heroTitle": "Di \"Sí, quiero\" junto al Mar Rojo",
+    "heroSubtitle": "Desde escapadas íntimas hasta grandes celebraciones, cada detalle compuesto por nuestro atelier.",
+    "packagesEyebrow": "Paquetes de lujo",
+    "packagesTitle": "Experiencias nupciales seleccionadas",
+    "guests": "Invitadas",
+    "from": "De",
+    "inquire": "Consultar paquete",
+    "packages": {
+      "elopement": {
+        "name": "La fuga",
+        "text": "Una ceremonia íntima en la playa, fotógrafo, pastel de dos niveles y una cena privada a la luz de las velas."
+      },
+      "classic": {
+        "name": "El clásico",
+        "text": "Ceremonia en la playa, recepción de tres platos, arco floral, música en vivo y un planificador dedicado."
+      },
+      "grand": {
+        "name": "el gran",
+        "text": "Salón de baile o local en la playa, menú degustación de varios platos, bar premium, fuegos artificiales y producción completa."
+      }
+    },
+    "servicesEyebrow": "Servicios de taller",
+    "servicesTitle": "Compuesto en cada detalle",
+    "plan": "Planifica tu boda",
+    "services": {
+      "planner": "Planificadora dedicada",
+      "floral": "Diseño Floral",
+      "photo": "Foto y vídeo",
+      "music": "Entretenimiento en vivo",
+      "cake": "pastelería",
+      "spa": "Spa y suite nupcial"
+    },
+    "form": {
+      "successTitle": "¡Felicidades!",
+      "successText": "Su consulta sobre bodas ha sido recibida por el Park Regency Wedding Atelier. Nuestro coordinador principal de bodas se comunicará con usted dentro de las 24 horas para programar una consulta privada.",
+      "submitAnother": "Enviar otra consulta",
+      "eyebrow": "Taller de bodas",
+      "title": "Consulta personalizada",
+      "subtitle": "Comparte los detalles de la boda de tus sueños. Compongamos tu día perfecto.",
+      "partner1": "Compañera 1 nombre",
+      "partner2": "Compañera 2 Nombre",
+      "email": "Dirección de correo electrónico",
+      "phone": "Número de teléfono",
+      "date": "Fecha preferida",
+      "guestsCount": "Los invitados cuentan",
+      "experience": "Experiencia deseada",
+      "vision": "Tu visión de boda",
+      "visionPlaceholder": "Cuéntenos sobre su tema, inspiraciones florales, paleta de colores, deseos de catering y si necesita alojamiento para huéspedes.",
+      "submitBtn": "Enviar consulta de taller"
+    }
+  },
+  "dining": {
+    "title": "Cenas y restaurantes exclusivos - Park Regency Sharm El Sheikh",
+    "metaDesc": "Deléitese con siete restaurantes y bares exclusivos. Desde cocina real tailandesa en Sala Thai hasta cenas mediterráneas junto a la playa.",
+    "heroEyebrow": "Viajes epicúreos",
+    "heroTitle": "Cenas exclusivas",
+    "heroSubtitle": "Siete lugares distintos que celebran el arte culinario, desde especias reales tailandesas hasta parrilladas junto a la playa.",
+    "eyebrow": "Un sabor de lo extraordinario",
+    "sectionTitle": "Nuestros restaurantes y bares",
+    "signatureSpecialties": "Especialidades exclusivas",
+    "dress": "Vestido: {{vestido}}",
+    "viewMenu": "Ver menú",
+    "reserveTable": "Mesa de reserva",
+    "menuClose": "Cerrar menú modal",
+    "menuTaxes": "* Los impuestos gubernamentales y los cargos por servicio están incluidos. Selecciones de menú sujetas a cambios estacionales.",
+    "reserveClose": "Cerrar modo de reserva",
+    "reserveTitle": "Reservas para cenar",
+    "reserveHeading": "Reserva una mesa",
+    "reserveVenue": "Lugar: {{nombre}}",
+    "reserveDate": "Fecha de Reserva",
+    "reserveTime": "Franja horaria",
+    "chooseTime": "Elige tiempo",
+    "reserveGuests": "Invitadas",
+    "guestsPlural": "{{count}} Invitadas",
+    "guestSingular": "{{count}} Invitada",
+    "reserveNotes": "Solicitudes dietéticas especiales",
+    "reserveNotesPlaceholder": "p.ej. Alergias, mesa junto a la ventana, celebración de aniversario.",
+    "reserveSubmit": "Confirmar reserva de mesa",
+    "reserveSubmitting": "Mesa de reserva...",
+    "reserveSuccess": "¡Reserva de mesa confirmada! Se le ha enviado un correo electrónico y un SMS de confirmación.",
+    "reserveHelp": "Las mesas se mantendrán un máximo de 15 minutos después del horario de reserva. Se aplican pautas del código de vestimenta.",
+    "venues": {
+      "sala-thai": {
+        "name": "Sala tailandesa",
+        "cuisine": "Alta gastronomía tailandesa real",
+        "hours": "18:00 – 23:00",
+        "dress": "Informal elegante",
+        "text": "Un pabellón íntimo de madera de teca y estanques de lotos: auténtica cocina tailandesa guiada por chefs de Bangkok.",
+        "signatureDishes": ["Tom Yum Goong", "Phad Thai Goong Sod", "Curry Verde"],
+        "menu": {
+          "categories": {
+            "Appetizers": "Aperitivos",
+            "Mains": "Red eléctrica"
+          },
+          "items": {
+            "Por Pia Thod": {
+              "name": "Por Pia Thod",
+              "desc": "Rollitos de primavera de verduras crujientes con salsa de chile dulce"
+            },
+            "Satay Ruam": {
+              "name": "sarpullido satay",
+              "desc": "Brochetas de pollo y ternera a la parrilla con salsa de maní exclusiva"
+            },
+            "Gaeng Massaman Nua": {
+              "name": "Gaeng Massaman Nua",
+              "desc": "Pechuga de ternera estofada a fuego lento al curry masaman con patatas baby y cardamomo"
+            },
+            "Pla Rad Prik": {
+              "name": "Pla Rad Prik",
+              "desc": "Lubina crujiente entera del Mar Rojo con glaseado de chile agridulce y picante"
+            }
+          }
+        }
+      },
+      "the-main": {
+        "name": "La principal",
+        "cuisine": "Cocina Internacional en Vivo",
+        "hours": "06:30 – 11:00, 18:30 – 22:30",
+        "dress": "Resort informal",
+        "text": "Estaciones de cocina en vivo y un amplio desayuno internacional con vista al mar.",
+        "signatureDishes": [
+          "Feteer egipcio recién horneado",
+          "Prime Rib asado a fuego lento",
+          "Parrilla de mariscos a medida"
+        ],
+        "menu": {
+          "categories": {
+            "Breakfast Highlight": "Lo más destacado del desayuno",
+            "Dinner Highlight": "Lo más destacado de la cena"
+          },
+          "items": {
+            "Egyptian Shakshuka": {
+              "name": "Shakshuka egipcia",
+              "desc": "Huevos de granja escalfados en salsa especiada de tomate, pimiento morrón y comino"
+            },
+            "Royal Waffles": {
+              "name": "Waffles reales",
+              "desc": "Gofres belgas calientes con miel local, crema cuajada y bayas frescas"
+            },
+            "Sinai Spiced Lamb Chops": {
+              "name": "Chuletas de cordero especiadas del Sinaí",
+              "desc": "Chuletas de cordero a la brasa, aromático arroz oriental, salsa de yogur con ajo"
+            }
+          }
+        }
+      },
+      "beach-house": {
+        "name": "Casa de playa",
+        "cuisine": "Parrilla costera mediterránea",
+        "hours": "12:00 – 23:00",
+        "dress": "Playa Casual/Elegante",
+        "text": "Pesca del día al horno de leña, pizzas hechas a mano, rosado helado y los pies en la arena.",
+        "signatureDishes": [
+          "Calamares del Mar Rojo al carbón",
+          "Pizza napolitana de burrata",
+          "Lubina al horno con sal"
+        ],
+        "menu": {
+          "categories": {
+            "Starters & Salads": "Entrantes y Ensaladas",
+            "From the Wood Oven": "Del Horno de Leña"
+          },
+          "items": {
+            "Insalata Caprese": {
+              "name": "ensalada capresse",
+              "desc": "Tomates frescos, mozzarella de búfala, pesto de albahaca y balsámico añejo"
+            },
+            "Fritto Misto": {
+              "name": "Frito Mixto",
+              "desc": "Calamares crujientes, gambas, palitos de calabacín, alioli de limón en conserva"
+            },
+            "Grigliata Mista di Pesce": {
+              "name": "Pescado mixto a la parrilla",
+              "desc": "Cola de langosta a la parrilla, langostinos del Mar Rojo, calamares, glaseado de hierbas de limón"
+            }
+          }
+        }
+      },
+      "sunset-bar": {
+        "name": "Bar y Terraza Atardecer",
+        "cuisine": "Salón de cócteles y shisha",
+        "hours": "16:00 – 02:00",
+        "dress": "Resort informal",
+        "text": "Cócteles exclusivos hechos a mano, shisha premium y el mejor mirador para la puesta de sol en el resort.",
+        "signatureDishes": [
+          "Mula Sunset de Gardens Bay",
+          "Shisha Premium Doble Manzana",
+          "Plato de degustación de mezze"
+        ],
+        "menu": {
+          "categories": {
+            "Signature Libations": "Libaciones exclusivas",
+            "Cold & Hot Mezze": "Mezze frío y caliente"
+          },
+          "items": {
+            "Hibiscus Royal": {
+              "name": "Hibisco real",
+              "desc": "Infusión de hibisco Karkadeh orgánica local, ginebra seca, prosecco, lima"
+            },
+            "Sinai Old Fashioned": {
+              "name": "Sinaí pasado de moda",
+              "desc": "Bourbon, melaza de dátil local, amargo de naranja, canela ahumada"
+            },
+            "Sinai Dipping Platter": {
+              "name": "Plato de inmersión del Sinaí",
+              "desc": "Hummus, Baba Ghanoush, Labneh, pan de pita caliente recién horneado"
+            }
+          }
+        }
+      },
+      "trattoria": {
+        "name": "La trattoria",
+        "cuisine": "Bistró italiano clásico",
+        "hours": "18:30 – 23:00",
+        "dress": "Informal elegante",
+        "text": "Pastas hechas a mano, pizzas al horno de piedra al horno de leña y una bodega de vinos totalmente italianos cuidadosamente seleccionada.",
+        "signatureDishes": ["Tagliolini de trufa", "Risotto de Mariscos", "Tiramisú de autor"],
+        "menu": {
+          "categories": {
+            "Handcrafted Pasta": "Pastas Artesanales"
+          },
+          "items": {
+            "Tagliatelle al Ragu": {
+              "name": "Tagliatelle con ragú",
+              "desc": "Pasta al huevo hecha a mano, boloñesa de ternera Angus cocida a fuego lento, Parmigiano Reggiano"
+            },
+            "Gnocchi della Casa": {
+              "name": "ñoquis caseros",
+              "desc": "Ñoquis de patata, crema de gorgonzola, nueces locales tostadas y salvia fresca"
+            }
+          }
+        }
+      },
+      "sakura": {
+        "name": "sakura",
+        "cuisine": "Omakase japonesa y sushi",
+        "hours": "19:00 – 23:00",
+        "dress": "Informal elegante",
+        "text": "Un exclusivo mostrador omakase de ocho asientos y sushi premium a la carta preparado por maestros chefs de sushi.",
+        "signatureDishes": [
+          "Selección de Sashimi Omakase",
+          "Rollo del Dragón del Mar Rojo",
+          "Filete de ternera wagyu"
+        ],
+        "menu": {
+          "categories": {
+            "Sushi & Sashimi": "Sushi y Sashimi"
+          },
+          "items": {
+            "Moriawase Sashimi": {
+              "name": "Sashimi de Moriawase",
+              "desc": "Selección del chef de 9 cortes de sashimi premium (atún, salmón, pargo rojo)"
+            },
+            "Spicy Red Sea Crab Roll": {
+              "name": "Rollo picante de cangrejo del Mar Rojo",
+              "desc": "Cangrejo azul picante, pepino, cubierto con aguacate y salsa dulce unagi"
+            }
+          }
+        }
+      },
+      "library": {
+        "name": "El salón de la biblioteca",
+        "cuisine": "Coñacs y cigarros finos",
+        "hours": "15:00 – 00:00",
+        "dress": "Informal/formal elegante",
+        "text": "Coñacs añejos, puros de una sola finca y un servicio de té selecto por la tarde dentro de un elegante estudio.",
+        "signatureDishes": [
+          "Té alto exclusivo de Park Regency",
+          "Vuelo raro de Single Malt",
+          "Cuban Cohiba Cigar selection"
+        ],
+        "menu": {
+          "categories": {
+            "Afternoon High Tea": "Té de la tarde"
+          },
+          "items": {
+            "Royal High Tea Service": {
+              "name": "Servicio de té real",
+              "desc": "Bocadillos variados, bollos, crema Devonshire, conservas y taza de té"
+            }
+          }
+        }
+      }
+    }
+  },
+  "facilities": {
+    "title": "Instalaciones y comodidades — Park Regency Sharm El Sheikh",
+    "metaDesc": "Descubra las comodidades de 5 estrellas en Park Regency. Spa galardonado, playas privadas, gimnasio, centro de buceo PADI y valet en el aeropuerto.",
+    "heroEyebrow": "Servicios del resort",
+    "heroTitle": "Instalaciones y comodidades",
+    "heroSubtitle": "Cada detalle está diseñado para mejorar su escapada frente a la playa y garantizar una tranquilidad absoluta.",
+    "eyebrow": "Un mundo de ocio",
+    "sectionTitle": "Hecha a mano para los sentidos",
+    "exploreService": "Explorar el servicio",
+    "inquireConcierge": "Preguntar con conserjería",
+    "resortFacility": "Instalaciones del complejo",
+    "items": {
+      "oasis-spa": {
+        "title": "Oasis Spa y Bienestar",
+        "description": "Disfrute de terapias holísticas, hammams turcos tradicionales y exfoliaciones terapéuticas inspiradas en los minerales del Sinaí. Un santuario de restauración.",
+        "tag": "Premiado"
+      },
+      "cascading-pools": {
+        "title": "Piscinas en cascada",
+        "description": "Tres piscinas tipo laguna de agua dulce interconectadas, cascadas dinámicas, ríos lentos y jacuzzis al aire libre rodeados de exuberantes jardines botánicos.",
+        "tag": "Calentada en invierno"
+      },
+      "regency-club": {
+        "title": "Club de regencia",
+        "description": "Un retiro VIP exclusivo que ofrece áreas de playa privadas, piscina club, salón privado, desayuno gourmet, té por la tarde y cócteles por la noche.",
+        "tag": "Acceso VIP"
+      },
+      "padi-dive": {
+        "title": "Centro de Buceo PADI",
+        "description": "Explore los corales legendarios y la vida marina submarina de Gardens Bay con nuestros instructores PADI expertos y certificados y excursiones de buceo.",
+        "tag": "Arrecife de la Bahía de los Jardines"
+      },
+      "kids-club": {
+        "title": "Club infantil Regencia",
+        "description": "Un área de juegos segura e interactiva con piscina para niños, tobogán, manualidades educativas diarias programadas, sesiones de cine y atención profesional.",
+        "tag": "Gratis para invitados"
+      },
+      "sports-center": {
+        "title": "Centro deportivo y canchas",
+        "description": "Cinco canchas de tenis de campeonato iluminadas, canchas de squash, tenis de mesa y zonas de voleibol de playa para recreación competitiva.",
+        "tag": "Equipo proporcionado"
+      },
+      "olympus-fitness": {
+        "title": "Gimnasio Olimpo",
+        "description": "Gimnasio totalmente equipado con vistas al Mar Rojo. Cuenta con sistemas cardiovasculares Technogym premium, pesas libres, sauna y baños de vapor privados.",
+        "tag": "Acceso 24 horas al día, 7 días a la semana"
+      },
+      "airport-concierge": {
+        "title": "Servicios de conserjería en el aeropuerto",
+        "description": "Saludos personalizados en el aeropuerto, asistencia aduanera rápida y traslados privados premium en autobús Mercedes-Benz desde y hacia el aeropuerto SSH.",
+        "tag": "Se requiere reserva anticipada"
+      }
+    }
   }
 }

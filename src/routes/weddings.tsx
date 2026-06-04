@@ -3,55 +3,27 @@ import { PageShell } from "@/components/page-shell";
 import { PageHero } from "@/components/page-hero";
 import { useState } from "react";
 import { Heart, Flower2, Camera, Music, Sparkles, Cake, CheckCircle } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import i18n from "@/i18n";
 import wedding from "@/assets/wedding.jpg";
 
 export const Route = createFileRoute("/weddings")({
   head: () => ({
     meta: [
-      { title: "Weddings — Park Regency Sharm El Sheikh" },
+      { title: i18n.t("weddings.title") },
       {
         name: "description",
-        content:
-          "Beachfront ceremonies, ballroom receptions and intimate elopements crafted by our wedding atelier.",
+        content: i18n.t("weddings.metaDesc"),
       },
-      { property: "og:title", content: "Weddings at Park Regency" },
-      { property: "og:description", content: "Say 'I do' by the Red Sea." },
+      { property: "og:title", content: i18n.t("weddings.ogTitle") },
+      { property: "og:description", content: i18n.t("weddings.ogDesc") },
     ],
   }),
   component: WeddingsPage,
 });
 
-const packages = [
-  {
-    name: "The Elopement",
-    guests: "2–10",
-    price: "2,400",
-    text: "An intimate beach ceremony, photographer, two-tier cake and a private candlelit dinner.",
-  },
-  {
-    name: "The Classic",
-    guests: "30–80",
-    price: "8,900",
-    text: "Beach ceremony, three-course reception, floral arch, live music and a dedicated planner.",
-  },
-  {
-    name: "The Grand",
-    guests: "100–250",
-    price: "24,000",
-    text: "Ballroom or beach venue, multi-course tasting menu, premium bar, fireworks and full production.",
-  },
-];
-
-const services = [
-  { icon: Heart, label: "Dedicated Planner" },
-  { icon: Flower2, label: "Floral Design" },
-  { icon: Camera, label: "Photo & Video" },
-  { icon: Music, label: "Live Entertainment" },
-  { icon: Cake, label: "Patisserie" },
-  { icon: Sparkles, label: "Spa & Bridal Suite" },
-];
-
 function WeddingsPage() {
+  const { t } = useTranslation();
   const [partner1, setPartner1] = useState("");
   const [partner2, setPartner2] = useState("");
   const [email, setEmail] = useState("");
@@ -67,21 +39,51 @@ function WeddingsPage() {
     setIsSubmitted(true);
   };
 
+  const packages = [
+    {
+      name: t("weddings.packages.elopement.name"),
+      guests: "2–10",
+      price: "2,400",
+      text: t("weddings.packages.elopement.text"),
+    },
+    {
+      name: t("weddings.packages.classic.name"),
+      guests: "30–80",
+      price: "8,900",
+      text: t("weddings.packages.classic.text"),
+    },
+    {
+      name: t("weddings.packages.grand.name"),
+      guests: "100–250",
+      price: "24,000",
+      text: t("weddings.packages.grand.text"),
+    },
+  ];
+
+  const services = [
+    { icon: Heart, label: t("weddings.services.planner") },
+    { icon: Flower2, label: t("weddings.services.floral") },
+    { icon: Camera, label: t("weddings.services.photo") },
+    { icon: Music, label: t("weddings.services.music") },
+    { icon: Cake, label: t("weddings.services.cake") },
+    { icon: Sparkles, label: t("weddings.services.spa") },
+  ];
+
   return (
     <PageShell>
       <PageHero
-        eyebrow="Weddings & Celebrations"
-        title="Say 'I do' by the Red Sea"
-        subtitle="From intimate elopements to grand celebrations, every detail composed by our atelier."
+        eyebrow={t("weddings.heroEyebrow")}
+        title={t("weddings.heroTitle")}
+        subtitle={t("weddings.heroSubtitle")}
         image={wedding}
       />
 
       {/* PACKAGES */}
       <section className="py-24 container mx-auto px-6">
         <div className="text-center max-w-xl mx-auto mb-16">
-          <span className="eyebrow">Luxury Packages</span>
+          <span className="eyebrow">{t("weddings.packagesEyebrow")}</span>
           <h2 className="font-display text-3xl md:text-4xl mt-3 text-ocean-deep">
-            Curated Bridal Experiences
+            {t("weddings.packagesTitle")}
           </h2>
           <div className="gold-divider mx-auto my-4" />
         </div>
@@ -93,7 +95,9 @@ function WeddingsPage() {
               className="bg-card border border-border shadow-card p-8 text-center flex flex-col justify-between hover:border-gold/50 transition-colors"
             >
               <div>
-                <span className="eyebrow text-gold">{p.guests} Guests</span>
+                <span className="eyebrow text-gold">
+                  {p.guests} {t("weddings.guests")}
+                </span>
                 <h3 className="font-display text-2xl text-ocean-deep mt-3">{p.name}</h3>
                 <div className="gold-divider mx-auto my-5" />
                 <p className="text-sm text-muted-foreground leading-relaxed min-h-[90px]">
@@ -102,14 +106,14 @@ function WeddingsPage() {
               </div>
 
               <div className="mt-8 pt-6 border-t border-border">
-                <div className="eyebrow text-[9px]">From</div>
+                <div className="eyebrow text-[9px]">{t("weddings.from")}</div>
                 <div className="font-display text-3xl text-ocean-deep mt-1">${p.price}</div>
                 <a
                   href="#inquiry-form"
                   onClick={() => setPkgSelection(p.name)}
                   className="mt-5 block w-full py-2.5 border border-gold hover:bg-gold hover:text-ocean-deep text-[10px] uppercase font-bold tracking-widest text-gold transition-all"
                 >
-                  Inquire Package
+                  {t("weddings.inquire")}
                 </a>
               </div>
             </article>
@@ -121,9 +125,9 @@ function WeddingsPage() {
       <section className="py-24 bg-secondary/50 border-t border-b border-border">
         <div className="container mx-auto px-6">
           <div className="text-center max-w-xl mx-auto mb-16">
-            <span className="eyebrow">Atelier Services</span>
+            <span className="eyebrow">{t("weddings.servicesEyebrow")}</span>
             <h2 className="font-display text-3xl md:text-4xl mt-3 text-ocean-deep">
-              Composed in every detail
+              {t("weddings.servicesTitle")}
             </h2>
             <div className="gold-divider mx-auto my-4" />
           </div>
@@ -147,7 +151,7 @@ function WeddingsPage() {
               href="#inquiry-form"
               className="inline-block px-10 py-4 bg-gold text-ocean-deep text-xs uppercase tracking-[0.22em] font-bold hover:bg-ocean-deep hover:text-white transition-all shadow-sm"
             >
-              Plan Your Wedding
+              {t("weddings.plan")}
             </a>
           </div>
         </div>
@@ -162,37 +166,35 @@ function WeddingsPage() {
           {isSubmitted ? (
             <div className="text-center py-10 space-y-6">
               <CheckCircle className="h-16 w-16 text-gold mx-auto" />
-              <h3 className="font-display text-3xl text-ocean-deep">Congratulations!</h3>
+              <h3 className="font-display text-3xl text-ocean-deep">
+                {t("weddings.form.successTitle")}
+              </h3>
               <p className="text-muted-foreground max-w-md mx-auto leading-relaxed text-sm">
-                Your wedding inquiry has been received by the Park Regency Wedding Atelier. Our Lead
-                Wedding Coordinator will contact you within 24 hours to schedule a private
-                consultation.
+                {t("weddings.form.successText")}
               </p>
               <button
                 onClick={() => setIsSubmitted(false)}
                 className="px-6 py-3 border border-border text-xs uppercase tracking-widest font-semibold hover:border-gold hover:text-gold transition-all cursor-pointer"
               >
-                Submit Another Inquiry
+                {t("weddings.form.submitAnother")}
               </button>
             </div>
           ) : (
             <div>
               <div className="text-center max-w-xl mx-auto mb-10">
-                <span className="eyebrow">Wedding Atelier</span>
+                <span className="eyebrow">{t("weddings.form.eyebrow")}</span>
                 <h3 className="font-display text-2xl md:text-3xl text-ocean-deep mt-2">
-                  Bespoke Inquiry
+                  {t("weddings.form.title")}
                 </h3>
                 <div className="gold-divider mx-auto my-4" />
-                <p className="text-xs text-muted-foreground">
-                  Share the details of your dream wedding. Let us compose your perfect day.
-                </p>
+                <p className="text-xs text-muted-foreground">{t("weddings.form.subtitle")}</p>
               </div>
 
               <form onSubmit={handleInquirySubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold block mb-1.5">
-                      Partner 1 Name
+                      {t("weddings.form.partner1")}
                     </label>
                     <input
                       type="text"
@@ -200,12 +202,11 @@ function WeddingsPage() {
                       value={partner1}
                       onChange={(e) => setPartner1(e.target.value)}
                       className="w-full bg-secondary border border-border p-3 text-xs text-foreground outline-none focus:border-gold"
-                      placeholder="Full Name"
                     />
                   </div>
                   <div>
                     <label className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold block mb-1.5">
-                      Partner 2 Name
+                      {t("weddings.form.partner2")}
                     </label>
                     <input
                       type="text"
@@ -213,7 +214,6 @@ function WeddingsPage() {
                       value={partner2}
                       onChange={(e) => setPartner2(e.target.value)}
                       className="w-full bg-secondary border border-border p-3 text-xs text-foreground outline-none focus:border-gold"
-                      placeholder="Full Name"
                     />
                   </div>
                 </div>
@@ -221,7 +221,7 @@ function WeddingsPage() {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold block mb-1.5">
-                      Email Address
+                      {t("weddings.form.email")}
                     </label>
                     <input
                       type="email"
@@ -229,12 +229,11 @@ function WeddingsPage() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       className="w-full bg-secondary border border-border p-3 text-xs text-foreground outline-none focus:border-gold"
-                      placeholder="email@example.com"
                     />
                   </div>
                   <div>
                     <label className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold block mb-1.5">
-                      Phone Number
+                      {t("weddings.form.phone")}
                     </label>
                     <input
                       type="tel"
@@ -242,7 +241,6 @@ function WeddingsPage() {
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       className="w-full bg-secondary border border-border p-3 text-xs text-foreground outline-none focus:border-gold"
-                      placeholder="+1 (555) 000-0000"
                     />
                   </div>
                 </div>
@@ -250,7 +248,7 @@ function WeddingsPage() {
                 <div className="grid md:grid-cols-3 gap-6">
                   <div>
                     <label className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold block mb-1.5">
-                      Preferred Date
+                      {t("weddings.form.date")}
                     </label>
                     <input
                       type="date"
@@ -262,7 +260,7 @@ function WeddingsPage() {
                   </div>
                   <div>
                     <label className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold block mb-1.5">
-                      Guests Count
+                      {t("weddings.form.guestsCount")}
                     </label>
                     <select
                       value={guestsCount}
@@ -278,7 +276,7 @@ function WeddingsPage() {
                   </div>
                   <div>
                     <label className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold block mb-1.5">
-                      Desired Experience
+                      {t("weddings.form.experience")}
                     </label>
                     <select
                       value={pkgSelection}
@@ -295,7 +293,7 @@ function WeddingsPage() {
 
                 <div>
                   <label className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold block mb-1.5">
-                    Your Wedding Vision
+                    {t("weddings.form.vision")}
                   </label>
                   <textarea
                     rows={4}
@@ -303,7 +301,7 @@ function WeddingsPage() {
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     className="w-full bg-secondary border border-border p-3 text-xs text-foreground outline-none focus:border-gold placeholder-muted-foreground/60"
-                    placeholder="Tell us about your theme, floral inspirations, color palette, catering desires, and whether you require guest lodging accommodations."
+                    placeholder={t("weddings.form.visionPlaceholder")}
                   />
                 </div>
 
@@ -311,7 +309,7 @@ function WeddingsPage() {
                   type="submit"
                   className="w-full py-4 bg-ocean-deep hover:bg-gold text-white hover:text-ocean-deep text-xs font-semibold uppercase tracking-widest transition-colors cursor-pointer"
                 >
-                  Send Atelier Inquiry
+                  {t("weddings.form.submitBtn")}
                 </button>
               </form>
             </div>

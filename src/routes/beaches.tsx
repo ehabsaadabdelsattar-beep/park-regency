@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageShell } from "@/components/page-shell";
 import { PageHero } from "@/components/page-hero";
 import { Sun, Umbrella, Waves } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import i18n from "@/i18n";
 import hero from "@/assets/hero.jpg";
 import pool from "@/assets/pool.jpg";
 import diving from "@/assets/diving.jpg";
@@ -9,50 +11,58 @@ import diving from "@/assets/diving.jpg";
 export const Route = createFileRoute("/beaches")({
   head: () => ({
     meta: [
-      { title: "Private Beaches — Park Regency Sharm El Sheikh" },
+      { title: `${i18n.t("beaches.title")}` },
       {
         name: "description",
-        content:
-          "Three private beaches on the shores of Gardens Bay — from family coves to adults-only sanctuaries.",
+        content: i18n.t("beaches.metaDesc"),
       },
-      { property: "og:title", content: "Private Beaches" },
-      {
-        property: "og:description",
-        content: "Powder-soft sand, turquoise water, world-class coral.",
-      },
+      { property: "og:title", content: i18n.t("beaches.ogTitle") },
+      { property: "og:description", content: i18n.t("beaches.ogDesc") },
     ],
   }),
   component: BeachesPage,
 });
 
-const beaches = [
-  {
-    img: hero,
-    name: "Main Beach",
-    focus: "Family",
-    text: "A wide crescent of golden sand with a shaded promenade, beachfront café and a gentle reef entry suitable for all ages.",
-  },
-  {
-    img: pool,
-    name: "Sunset Cove",
-    focus: "Adults only",
-    text: "A serene adults-only enclave with cabanas, attentive beach service and a dedicated bar for sunset rituals.",
-  },
-  {
-    img: diving,
-    name: "Reef Bay",
-    focus: "Snorkel & dive",
-    text: "The resort's house reef begins steps from the shore — a living aquarium for snorkelers and beginner divers.",
-  },
-];
-
 function BeachesPage() {
+  const { t } = useTranslation();
+
+  const beaches = [
+    {
+      img: hero,
+      name: t("beaches.items.main.name"),
+      focus: t("beaches.items.main.focus"),
+      text: t("beaches.items.main.text"),
+      features: [
+        { icon: Sun, label: t("beaches.items.main.allDay", "All day service") },
+        { icon: Umbrella, label: t("beaches.items.main.cabanas", "Cabanas") },
+        { icon: Waves, label: t("beaches.items.main.lifeguard", "Lifeguarded") },
+      ],
+    },
+    {
+      img: pool,
+      name: t("beaches.items.sunset.name"),
+      focus: t("beaches.items.sunset.focus"),
+      text: t("beaches.items.sunset.text"),
+      features: [
+        { icon: Sun, label: t("beaches.items.main.allDay", "All day service") },
+        { icon: Umbrella, label: t("beaches.items.main.cabanas", "Cabanas") },
+      ],
+    },
+    {
+      img: diving,
+      name: t("beaches.items.reef.name"),
+      focus: t("beaches.items.reef.focus"),
+      text: t("beaches.items.reef.text"),
+      features: [{ icon: Waves, label: t("beaches.items.main.lifeguard", "Lifeguarded") }],
+    },
+  ];
+
   return (
     <PageShell>
       <PageHero
-        eyebrow="The Beaches"
-        title="Three shores, one Red Sea"
-        subtitle="A private kilometre of coastline reserved exclusively for our guests."
+        eyebrow={t("beaches.heroEyebrow")}
+        title={t("beaches.heroTitle")}
+        subtitle={t("beaches.heroSubtitle")}
         image={hero}
       />
 
@@ -74,11 +84,7 @@ function BeachesPage() {
               <div className="gold-divider my-6" />
               <p className="text-muted-foreground leading-relaxed">{b.text}</p>
               <div className="mt-8 flex gap-6 text-sm">
-                {[
-                  { icon: Sun, label: "All day service" },
-                  { icon: Umbrella, label: "Cabanas" },
-                  { icon: Waves, label: "Lifeguarded" },
-                ].map(({ icon: Icon, label }) => (
+                {b.features.map(({ icon: Icon, label }) => (
                   <div key={label} className="flex items-center gap-2 text-muted-foreground">
                     <Icon className="h-4 w-4 text-gold" />
                     {label}

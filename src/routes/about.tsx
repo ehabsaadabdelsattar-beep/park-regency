@@ -4,74 +4,67 @@ import { PageHero } from "@/components/page-hero";
 import { Award, Users, Heart, Leaf } from "lucide-react";
 import welcome from "@/assets/welcome.jpg";
 import hero from "@/assets/hero.jpg";
+import { useTranslation } from "react-i18next";
+import i18n from "@/i18n";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Park Regency Sharm El Sheikh" },
+      { title: `${i18n.t("about.title")} — Park Regency Sharm El Sheikh` },
       {
         name: "description",
-        content:
-          "A landmark of Red Sea hospitality since 1991 — 35 years of refined luxury in Gardens Bay, Sharm El Sheikh.",
+        content: i18n.t("about.metaDesc"),
       },
-      { property: "og:title", content: "About Park Regency" },
-      { property: "og:description", content: "Our story, our values, our promise." },
+      { property: "og:title", content: i18n.t("about.ogTitle") },
+      { property: "og:description", content: i18n.t("about.ogDesc") },
     ],
   }),
   component: AboutPage,
 });
 
-const values = [
-  {
-    icon: Heart,
-    title: "Intuitive Service",
-    text: "We anticipate, never interrupt. Service felt, never seen.",
-  },
-  {
-    icon: Award,
-    title: "Craftsmanship",
-    text: "From the brick of our archways to the plating of every course.",
-  },
-  {
-    icon: Leaf,
-    title: "Sustainability",
-    text: "A working reef-conservation programme and 100% renewable energy by 2030.",
-  },
-  {
-    icon: Users,
-    title: "Community",
-    text: "Eighty percent of our team is from the Sinai region we proudly call home.",
-  },
-];
-
 function AboutPage() {
+  const { t } = useTranslation();
+
+  const values = [
+    {
+      icon: Heart,
+      title: t("about.values.intuitiveService"),
+      text: t("about.values.intuitiveServiceText"),
+    },
+    {
+      icon: Award,
+      title: t("about.values.craftsmanship"),
+      text: t("about.values.craftsmanshipText"),
+    },
+    {
+      icon: Leaf,
+      title: t("about.values.sustainability"),
+      text: t("about.values.sustainabilityText"),
+    },
+    {
+      icon: Users,
+      title: t("about.values.community"),
+      text: t("about.values.communityText"),
+    },
+  ];
+
   return (
     <PageShell>
       <PageHero
-        eyebrow="About"
-        title="A landmark of the Red Sea"
-        subtitle="Since 1991, a quiet pioneer of luxury in Sharm El Sheikh."
+        eyebrow={t("about.heroEyebrow")}
+        title={t("about.heroTitle")}
+        subtitle={t("about.heroSubtitle")}
         image={welcome}
       />
 
       <section className="py-20 md:py-28 container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
-            <span className="eyebrow">Our Story</span>
-            <h2 className="font-display text-4xl md:text-5xl mt-3">
-              35 years of refined hospitality
-            </h2>
+            <span className="eyebrow">{t("about.ourStory")}</span>
+            <h2 className="font-display text-4xl md:text-5xl mt-3">{t("about.storyTitle")}</h2>
             <div className="gold-divider my-6" />
-            <p className="text-muted-foreground leading-relaxed mb-5">
-              Park Regency opened its doors in 1991 as one of the first true luxury resorts on the
-              Sinai Peninsula. Three decades on, we remain family-owned — guided by the same belief
-              that quietly excellent service is the rarest luxury of all.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              Today, Park Regency stretches across 22 hectares of beachfront in Gardens Bay, with
-              344 rooms and suites, three private beaches, seven restaurants and a flagship
-              conference center.
-            </p>
+            <p className="text-muted-foreground leading-relaxed mb-5">{t("about.storyP1")}</p>
+            <p className="text-muted-foreground leading-relaxed">{t("about.storyP2")}</p>
           </div>
           <img
             src={hero}
@@ -85,8 +78,8 @@ function AboutPage() {
       <section className="py-20 bg-secondary">
         <div className="container mx-auto px-6">
           <div className="text-center max-w-xl mx-auto mb-14">
-            <span className="eyebrow">Our Values</span>
-            <h2 className="font-display text-4xl md:text-5xl mt-3">What we stand for</h2>
+            <span className="eyebrow">{t("about.ourValues")}</span>
+            <h2 className="font-display text-4xl md:text-5xl mt-3">{t("about.valuesTitle")}</h2>
             <div className="gold-divider mx-auto my-6" />
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border">
@@ -103,14 +96,14 @@ function AboutPage() {
 
       <section className="py-20 container mx-auto px-6 text-center">
         <h2 className="font-display text-3xl md:text-4xl text-ocean-deep">
-          Begin your story with us
+          {t("about.beginStory")}
         </h2>
         <div className="gold-divider mx-auto my-6" />
         <Link
           to="/booking"
           className="inline-block mt-4 px-10 py-4 bg-gold text-ocean-deep text-xs uppercase tracking-[0.22em] hover:bg-ocean-deep hover:text-white transition-colors"
         >
-          Book Your Stay
+          {t("about.bookStay")}
         </Link>
       </section>
     </PageShell>

@@ -2,6 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell } from "@/components/page-shell";
 import { PageHero } from "@/components/page-hero";
 import { Check } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import i18n from "@/i18n";
 import hero from "@/assets/hero.jpg";
 import pool from "@/assets/pool.jpg";
 import roomSuite from "@/assets/room-suite.jpg";
@@ -12,98 +14,84 @@ import spa from "@/assets/spa.jpg";
 export const Route = createFileRoute("/offers")({
   head: () => ({
     meta: [
-      { title: "Special Offers — Park Regency Sharm El Sheikh" },
+      { title: i18n.t("offers.title") },
       {
         name: "description",
-        content:
-          "Exclusive packages: Summer Escape, Honeymoon, Family, Long Stay and Early Booking offers at Park Regency Sharm El Sheikh.",
+        content: i18n.t("offers.metaDesc"),
       },
-      { property: "og:title", content: "Special Offers at Park Regency" },
-      { property: "og:description", content: "Save more on your Red Sea luxury stay." },
+      { property: "og:title", content: i18n.t("offers.ogTitle") },
+      { property: "og:description", content: i18n.t("offers.ogDesc") },
     ],
   }),
   component: OffersPage,
 });
 
-const offers = [
-  {
-    img: pool,
-    tag: "Seasonal",
-    title: "Summer Escape",
-    save: "Save 25%",
-    desc: "Beat the heat with sun-drenched days by the Red Sea, daily breakfast and a complimentary cocktail.",
-    bullets: ["Daily breakfast for two", "Welcome cocktail", "Late check-out", "20% off spa"],
-    price: "240",
-  },
-  {
-    img: wedding,
-    tag: "Romance",
-    title: "Honeymoon Package",
-    save: "Bonus inclusions",
-    desc: "Begin your forever with rose-petal turndown, champagne and a private candlelit dinner on the beach.",
-    bullets: [
-      "5-night minimum",
-      "Private beach dinner",
-      "Couples spa ritual",
-      "Suite upgrade subject to availability",
-    ],
-    price: "490",
-  },
-  {
-    img: roomSuite,
-    tag: "Families",
-    title: "Family Package",
-    save: "Kids stay & eat free",
-    desc: "Connecting rooms, supervised kids' club and family activities on the reef.",
-    bullets: [
-      "2 kids under 12 free",
-      "Daily kids' club",
-      "Family snorkel session",
-      "Pool-side cabana",
-    ],
-    price: "380",
-  },
-  {
-    img: hero,
-    tag: "Extended",
-    title: "Long Stay Offer",
-    save: "Stay 7, pay 5",
-    desc: "Settle in. Two nights on us when you book a week or more, with weekly laundry and butler service.",
-    bullets: ["Min 7 nights", "Two free nights", "Weekly laundry", "Personal concierge"],
-    price: "210",
-  },
-  {
-    img: dining,
-    tag: "Plan ahead",
-    title: "Early Booking",
-    save: "Save 30%",
-    desc: "Book 60+ days in advance and enjoy our best available rate plus daily half-board dining.",
-    bullets: ["60-day advance", "Half-board included", "Free cancellation", "Best rate guarantee"],
-    price: "199",
-  },
-  {
-    img: spa,
-    tag: "Wellness",
-    title: "Wellness Retreat",
-    save: "Spa credit $200",
-    desc: "Daily yoga, a personalised wellness journey and a $200 spa credit per stay.",
-    bullets: [
-      "Daily yoga & meditation",
-      "$200 spa credit",
-      "Wellness breakfast",
-      "Aqua-fitness classes",
-    ],
-    price: "320",
-  },
-];
-
 function OffersPage() {
+  const { t } = useTranslation();
+
+  const offers = [
+    {
+      img: pool,
+      tag: t("offers.items.summer.tag"),
+      title: t("offers.items.summer.title"),
+      save: t("offers.items.summer.save"),
+      desc: t("offers.items.summer.desc"),
+      bullets: t("offers.items.summer.bullets", { returnObjects: true }) as string[],
+      price: "240",
+    },
+    {
+      img: wedding,
+      tag: t("offers.items.honeymoon.tag"),
+      title: t("offers.items.honeymoon.title"),
+      save: t("offers.items.honeymoon.save"),
+      desc: t("offers.items.honeymoon.desc"),
+      bullets: t("offers.items.honeymoon.bullets", { returnObjects: true }) as string[],
+      price: "490",
+    },
+    {
+      img: roomSuite,
+      tag: t("offers.items.family.tag"),
+      title: t("offers.items.family.title"),
+      save: t("offers.items.family.save"),
+      desc: t("offers.items.family.desc"),
+      bullets: t("offers.items.family.bullets", { returnObjects: true }) as string[],
+      price: "380",
+    },
+    {
+      img: hero,
+      tag: t("offers.items.longStay.tag"),
+      title: t("offers.items.longStay.title"),
+      save: t("offers.items.longStay.save"),
+      desc: t("offers.items.longStay.desc"),
+      bullets: t("offers.items.longStay.bullets", { returnObjects: true }) as string[],
+      price: "210",
+    },
+    {
+      img: dining,
+      tag: t("offers.items.early.tag"),
+      title: t("offers.items.early.title"),
+      save: t("offers.items.early.save"),
+      desc: t("offers.items.early.desc"),
+      bullets: t("offers.items.early.bullets", { returnObjects: true }) as string[],
+      price: "199",
+    },
+    {
+      img: spa,
+      tag: t("offers.items.wellness.tag"),
+      title: t("offers.items.wellness.title"),
+      save: t("offers.items.wellness.save"),
+      desc: t("offers.items.wellness.desc"),
+      bullets: t("offers.items.wellness.bullets", { returnObjects: true }) as string[],
+      price: "320",
+    },
+  ];
+
   return (
     <PageShell>
       <PageHero
-        eyebrow="Special Offers"
-        title="Exclusive packages, crafted for you"
-        subtitle="Hand-picked offers across the seasons — from honeymoons to family escapes."
+        eyebrow={t("offers.heroEyebrow")}
+        title={t("offers.heroTitle")}
+        subtitle={t("offers.heroSubtitle")}
         image={pool}
         height="sm"
       />
@@ -130,8 +118,8 @@ function OffersPage() {
                 <h3 className="font-display text-2xl mt-2 text-ocean-deep">{o.title}</h3>
                 <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{o.desc}</p>
                 <ul className="mt-5 space-y-2 text-sm">
-                  {o.bullets.map((b) => (
-                    <li key={b} className="flex gap-2 text-foreground/80">
+                  {o.bullets.map((b, i) => (
+                    <li key={i} className="flex gap-2 text-foreground/80">
                       <Check className="h-4 w-4 text-gold shrink-0 mt-0.5" />
                       {b}
                     </li>
@@ -139,17 +127,20 @@ function OffersPage() {
                 </ul>
                 <div className="mt-auto pt-6 flex items-end justify-between">
                   <div>
-                    <div className="eyebrow">From</div>
+                    <div className="eyebrow">{t("offers.from")}</div>
                     <div className="font-display text-2xl text-ocean-deep">
                       ${o.price}
-                      <span className="text-xs font-sans text-muted-foreground"> /night</span>
+                      <span className="text-xs font-sans text-muted-foreground">
+                        {" "}
+                        {t("offers.night")}
+                      </span>
                     </div>
                   </div>
                   <Link
                     to="/booking"
                     className="px-5 py-3 text-xs uppercase tracking-[0.2em] bg-ocean-deep text-white hover:bg-gold hover:text-ocean-deep transition-colors"
                   >
-                    Book
+                    {t("offers.book")}
                   </Link>
                 </div>
               </div>
