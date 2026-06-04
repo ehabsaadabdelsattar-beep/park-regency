@@ -196,9 +196,9 @@ function Home() {
   };
 
   return (
-    <>
+    <div className="flex flex-col min-h-screen overflow-x-hidden w-full">
       <SiteHeader />
-      <main>
+      <main className="flex-grow">
         {/* HERO WITH VIDEO BACKGROUND */}
         <section className="relative h-screen min-h-[680px] w-full overflow-hidden bg-black">
           {/* HTML5 Loop Video */}
@@ -647,6 +647,6 @@ function Home() {
         </section>
       </main>
       <SiteFooter />
-    </>
+    </div>
   );
 }

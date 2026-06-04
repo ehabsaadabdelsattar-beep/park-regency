@@ -38,7 +38,7 @@ export function BookingWidget() {
       <div className="container mx-auto max-w-6xl bg-card border border-border shadow-luxury transition-all duration-300 rounded-sm">
         <form
           onSubmit={handleCheckAvailability}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-border"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-border"
         >
           <Field label={t("booking.arrival")} icon={<Calendar className="h-4 w-4" />}>
             <input
