@@ -169,12 +169,12 @@ export function SiteFooter() {
             <Link to="/contact" className="hover:text-gold">
               {t("footer.contact")}
             </Link>
-            <a href="#" className="hover:text-gold">
+            <Link to="/privacy" className="hover:text-gold">
               {t("footer.privacy")}
-            </a>
-            <a href="#" className="hover:text-gold">
+            </Link>
+            <Link to="/terms" className="hover:text-gold">
               {t("footer.terms")}
-            </a>
+            </Link>
           </div>
         </div>
       </div>

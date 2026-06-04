@@ -1,8 +1,10 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { PageShell } from "@/components/page-shell";
 import { PageHero } from "@/components/page-hero";
+import { useState, useEffect, useCallback } from "react";
 import { useTranslation } from "react-i18next";
-import i18n from "@/i18n";
+import { X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
+
 import hero from "@/assets/hero.jpg";
 import welcome from "@/assets/welcome.jpg";
 import roomSeaView from "@/assets/room-sea-view.jpg";
@@ -15,51 +17,88 @@ import spa from "@/assets/spa.jpg";
 import pool from "@/assets/pool.jpg";
 
 export const Route = createFileRoute("/gallery")({
-  head: () => ({
-    meta: [
-      { title: i18n.t("gallery.title") },
-      {
-        name: "description",
-        content: i18n.t("gallery.metaDesc"),
-      },
-      { property: "og:title", content: i18n.t("gallery.ogTitle") },
-      {
-        property: "og:description",
-        content: i18n.t("gallery.ogDesc"),
-      },
-    ],
-  }),
   component: GalleryPage,
 });
 
+type Category =
+  | "All"
+  | "Rooms"
+  | "Suites"
+  | "Restaurants"
+  | "Spa"
+  | "Pool"
+  | "Beach"
+  | "Events";
+
+interface Photo {
+  src: string;
+  alt: string;
+  cat: Category;
+  span?: boolean;
+}
+
+const PHOTOS: Photo[] = [
+  { src: hero, alt: "Aerial view of resort & Red Sea", cat: "Beach", span: true },
+  { src: welcome, alt: "Grand Lobby & Reception", cat: "Rooms" },
+  { src: roomSeaView, alt: "Deluxe Sea View Room", cat: "Rooms" },
+  { src: roomSeaFront, alt: "Superior Sea Front Room", cat: "Rooms" },
+  { src: roomSuite, alt: "Royal Suite — Panoramic View", cat: "Suites", span: true },
+  { src: dining, alt: "Sala Thai Signature Restaurant", cat: "Restaurants" },
+  { src: wedding, alt: "Beachfront Wedding Ceremony", cat: "Events", span: true },
+  { src: diving, alt: "PADI Diving in Gardens Bay Reef", cat: "Beach" },
+  { src: spa, alt: "Oasis Spa & Wellness Treatment", cat: "Spa" },
+  { src: pool, alt: "Cascading Infinity Pool", cat: "Pool", span: true },
+  { src: hero, alt: "Private Beach at Sunrise", cat: "Beach" },
+  { src: pool, alt: "Pool Deck at Golden Hour", cat: "Pool" },
+  { src: dining, alt: "The Main — International Live Cooking", cat: "Restaurants" },
+  { src: spa, alt: "Hammam & Steam Room", cat: "Spa" },
+  { src: welcome, alt: "Corporate Events & Meetings", cat: "Events" },
+  { src: roomSuite, alt: "Presidential Villa — Private Terrace", cat: "Suites" },
+];
+
+const CATEGORIES: Category[] = [
+  "All",
+  "Rooms",
+  "Suites",
+  "Restaurants",
+  "Spa",
+  "Pool",
+  "Beach",
+  "Events",
+];
+
 function GalleryPage() {
   const { t } = useTranslation();
+  const [active, setActive] = useState<Category>("All");
+  const [lightbox, setLightbox] = useState<number | null>(null);
 
-  const categories = [
-    t("gallery.categories.all"),
-    t("gallery.categories.beaches"),
-    t("gallery.categories.rooms"),
-    t("gallery.categories.dining"),
-    t("gallery.categories.spa"),
-    t("gallery.categories.pools"),
-    t("gallery.categories.weddings"),
-    t("gallery.categories.activities"),
-  ];
+  const filtered = active === "All" ? PHOTOS : PHOTOS.filter((p) => p.cat === active);
 
-  const photos: { src: string; cat: string; alt: string }[] = [
-    { src: hero, cat: t("gallery.categories.beaches"), alt: "Aerial view of resort" },
-    { src: welcome, cat: t("gallery.categories.rooms"), alt: "Lobby" },
-    { src: roomSeaView, cat: t("gallery.categories.rooms"), alt: "Sea View room" },
-    { src: roomSeaFront, cat: t("gallery.categories.rooms"), alt: "Sea Front room" },
-    { src: roomSuite, cat: t("gallery.categories.rooms"), alt: "Royal Suite" },
-    { src: dining, cat: t("gallery.categories.dining"), alt: "Signature restaurant" },
-    { src: wedding, cat: t("gallery.categories.weddings"), alt: "Beach wedding" },
-    { src: diving, cat: t("gallery.categories.activities"), alt: "Diving in Red Sea" },
-    { src: spa, cat: t("gallery.categories.spa"), alt: "Spa treatment" },
-    { src: pool, cat: t("gallery.categories.pools"), alt: "Infinity pool" },
-    { src: hero, cat: t("gallery.categories.beaches"), alt: "Private beach" },
-    { src: pool, cat: t("gallery.categories.pools"), alt: "Pool deck at sunset" },
-  ];
+  const closeLightbox = useCallback(() => setLightbox(null), []);
+  const prevPhoto = useCallback(() => {
+    setLightbox((i) => (i === null ? null : (i - 1 + filtered.length) % filtered.length));
+  }, [filtered.length]);
+  const nextPhoto = useCallback(() => {
+    setLightbox((i) => (i === null ? null : (i + 1) % filtered.length));
+  }, [filtered.length]);
+
+  // Keyboard navigation
+  useEffect(() => {
+    if (lightbox === null) return;
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft") prevPhoto();
+      if (e.key === "ArrowRight") nextPhoto();
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [lightbox, closeLightbox, prevPhoto, nextPhoto]);
+
+  // Prevent body scroll when lightbox open
+  useEffect(() => {
+    document.body.style.overflow = lightbox !== null ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [lightbox]);
 
   return (
     <PageShell>
@@ -70,22 +109,34 @@ function GalleryPage() {
         image={hero}
         height="sm"
       />
+
       <section className="py-16 md:py-24 container mx-auto px-6">
-        <div className="flex flex-wrap gap-3 justify-center mb-12">
-          {categories.map((c) => (
+        {/* Category Filter Tabs */}
+        <div className="flex flex-wrap gap-2 justify-center mb-12">
+          {CATEGORIES.map((cat) => (
             <button
-              key={c}
-              className="px-5 py-2 text-xs uppercase tracking-[0.2em] border border-border hover:bg-ocean-deep hover:text-white hover:border-ocean-deep transition-colors"
+              key={cat}
+              onClick={() => { setActive(cat); setLightbox(null); }}
+              className={`px-5 py-2 text-xs uppercase tracking-[0.2em] border transition-colors cursor-pointer ${
+                active === cat
+                  ? "bg-ocean-deep text-white border-ocean-deep"
+                  : "border-border hover:bg-ocean-deep hover:text-white hover:border-ocean-deep"
+              }`}
             >
-              {c}
+              {cat}
             </button>
           ))}
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-          {photos.map((p, i) => (
+
+        {/* Masonry Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 auto-rows-[220px]">
+          {filtered.map((p, i) => (
             <div
-              key={i}
-              className={`group relative overflow-hidden ${i % 5 === 0 ? "md:row-span-2 md:col-span-2 aspect-square" : "aspect-square"}`}
+              key={`${p.src}-${i}`}
+              onClick={() => setLightbox(i)}
+              className={`group relative overflow-hidden cursor-zoom-in ${
+                p.span ? "md:col-span-2 md:row-span-2" : ""
+              }`}
             >
               <img
                 src={p.src}
@@ -93,24 +144,79 @@ function GalleryPage() {
                 loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-ocean-deep/0 group-hover:bg-ocean-deep/30 transition-colors" />
-              <div className="absolute bottom-3 left-3 opacity-0 group-hover:opacity-100 transition-opacity">
-                <span className="text-xs uppercase tracking-[0.18em] text-white bg-ocean-deep/70 px-3 py-1">
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-ocean-deep/0 group-hover:bg-ocean-deep/50 transition-all duration-300 flex items-center justify-center">
+                <ZoomIn className="h-8 w-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-lg" />
+              </div>
+              {/* Category badge */}
+              <div className="absolute bottom-3 start-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                <span className="text-[10px] uppercase tracking-[0.15em] text-white bg-ocean-deep/80 px-3 py-1">
                   {p.cat}
                 </span>
               </div>
             </div>
           ))}
         </div>
+
         <div className="text-center mt-16">
-          <Link
-            to="/booking"
+          <a
+            href="/booking"
             className="inline-block px-10 py-4 bg-gold text-ocean-deep text-xs uppercase tracking-[0.22em] hover:bg-ocean-deep hover:text-white transition-colors"
           >
             {t("gallery.bookStay")}
-          </Link>
+          </a>
         </div>
       </section>
+
+      {/* ---- LIGHTBOX ---- */}
+      {lightbox !== null && filtered[lightbox] && (
+        <div
+          className="fixed inset-0 z-[9999] bg-black/95 flex items-center justify-center"
+          onClick={closeLightbox}
+        >
+          {/* Close */}
+          <button
+            onClick={closeLightbox}
+            className="absolute top-4 end-4 text-white/80 hover:text-white transition-colors z-10 cursor-pointer"
+            aria-label="Close"
+          >
+            <X className="h-8 w-8" />
+          </button>
+
+          {/* Prev */}
+          <button
+            onClick={(e) => { e.stopPropagation(); prevPhoto(); }}
+            className="absolute start-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors z-10 cursor-pointer bg-white/10 hover:bg-white/20 rounded-full p-2"
+            aria-label="Previous"
+          >
+            <ChevronLeft className="h-8 w-8" />
+          </button>
+
+          {/* Next */}
+          <button
+            onClick={(e) => { e.stopPropagation(); nextPhoto(); }}
+            className="absolute end-14 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors z-10 cursor-pointer bg-white/10 hover:bg-white/20 rounded-full p-2"
+            aria-label="Next"
+          >
+            <ChevronRight className="h-8 w-8" />
+          </button>
+
+          {/* Image */}
+          <div
+            className="max-w-5xl max-h-[85vh] mx-auto px-16"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={filtered[lightbox].src}
+              alt={filtered[lightbox].alt}
+              className="max-w-full max-h-[80vh] object-contain shadow-2xl"
+            />
+            <p className="text-white/60 text-xs uppercase tracking-widest text-center mt-4">
+              {filtered[lightbox].alt} · {lightbox + 1} / {filtered.length}
+            </p>
+          </div>
+        </div>
+      )}
     </PageShell>
   );
 }

@@ -32,19 +32,20 @@ function ContactPage() {
   const [message, setMessage] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitted(true);
+    setIsLoading(true);
+    // Simulate processing then open WhatsApp with message
     setTimeout(() => {
-      setIsSubmitted(false);
-      setFirstName("");
-      setLastName("");
-      setEmail("");
-      setPhone("");
-      setSubject("Reservation");
-      setMessage("");
-      alert(t("contact.successMsg"));
-    }, 1500);
+      setIsLoading(false);
+      setIsSubmitted(true);
+      const wa = `https://wa.me/20693600000?text=${encodeURIComponent(
+        `*Contact Form — Park Regency*\n\nName: ${firstName} ${lastName}\nEmail: ${email}\nPhone: ${phone}\nSubject: ${subject}\n\n${message}`
+      )}`;
+      window.open(wa, "_blank");
+    }, 1200);
   };
 
   return (
@@ -170,10 +171,27 @@ function ContactPage() {
           </div>
 
           {/* Contact Inquiry Message Form */}
-          <form
-            className="bg-card border border-border shadow-luxury p-8 md:p-10 space-y-5"
-            onSubmit={handleSubmit}
-          >
+            {isSubmitted ? (
+              <div className="bg-card border border-border shadow-luxury p-8 md:p-10 flex flex-col items-center justify-center min-h-[400px] text-center">
+                <div className="h-16 w-16 rounded-full bg-gold flex items-center justify-center mb-6">
+                  <svg className="h-8 w-8 text-ocean-deep" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
+                </div>
+                <h3 className="font-display text-2xl text-ocean-deep mb-3">{t("contact.successMsg")}</h3>
+                <p className="text-sm text-muted-foreground max-w-xs">
+                  Your message has been forwarded via WhatsApp. Our team will respond within 24 hours.
+                </p>
+                <button
+                  onClick={() => { setIsSubmitted(false); setFirstName(""); setLastName(""); setEmail(""); setPhone(""); setSubject("Reservation"); setMessage(""); }}
+                  className="mt-8 px-6 py-3 border border-border text-xs uppercase tracking-wider hover:border-gold hover:text-gold transition-colors cursor-pointer"
+                >
+                  Send Another Message
+                </button>
+              </div>
+            ) : (
+            <form
+              className="bg-card border border-border shadow-luxury p-8 md:p-10 space-y-5"
+              onSubmit={handleSubmit}
+            >
             <h2 className="font-display text-2xl text-ocean-deep">{t("contact.sendMessage")}</h2>
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
@@ -246,13 +264,20 @@ function ContactPage() {
               />
             </div>
 
-            <button
-              type="submit"
-              className="w-full py-4 bg-ocean-deep text-white text-xs uppercase tracking-[0.22em] font-semibold hover:bg-gold hover:text-ocean-deep transition-colors cursor-pointer"
-            >
-              {t("contact.sendBtn")}
-            </button>
-          </form>
+              <button
+                type="submit"
+                disabled={isLoading}
+                className="w-full py-4 bg-ocean-deep text-white text-xs uppercase tracking-[0.22em] font-semibold hover:bg-gold hover:text-ocean-deep transition-colors cursor-pointer disabled:opacity-70 flex items-center justify-center gap-2"
+              >
+                {isLoading ? (
+                  <>
+                    <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"/></svg>
+                    Sending…
+                  </>
+                ) : t("contact.sendBtn")}
+              </button>
+            </form>
+            )}
         </div>
       </section>
 

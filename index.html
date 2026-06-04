@@ -5,10 +5,7 @@
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Park Regency Sharm El Sheikh — Luxury Red Sea Resort</title>
-    <meta
-      name="description"
-      content="5-star luxury resort on the Red Sea. Private beaches, world-class dining, spa &amp; suites in Sharm El Sheikh."
-    />
+    <meta name="description" content="5-star luxury resort on the Red Sea. Private beaches, world-class dining, spa &amp; suites in Sharm El Sheikh." />
     <meta property="og:title" content="Park Regency Sharm El Sheikh" />
     <meta property="og:description" content="Luxury Red Sea resort experience." />
     <meta property="og:type" content="website" />
@@ -19,6 +16,55 @@
     <meta name="twitter:description" content="Luxury Red Sea resort experience." />
     <meta name="theme-color" content="#1a3a5c" />
     <meta name="robots" content="index, follow" />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+    <!-- Hotel Structured Data (JSON-LD) for Google Rich Results -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Hotel",
+      "name": "Park Regency Sharm El Sheikh Resort",
+      "description": "5-star luxury resort on the Red Sea with private beaches, world-class dining, spa and suites in Sharm El Sheikh, Egypt.",
+      "url": "https://park-regency.vercel.app",
+      "telephone": "+20693600000",
+      "email": "reservations@parkregency.com",
+      "starRating": { "@type": "Rating", "ratingValue": "5" },
+      "priceRange": "$$$",
+      "image": "/og-image.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Gardens Bay, Naama Bay",
+        "addressLocality": "Sharm El Sheikh",
+        "addressRegion": "South Sinai",
+        "postalCode": "46619",
+        "addressCountry": "EG"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "27.9179929",
+        "longitude": "34.3387823"
+      },
+      "amenityFeature": [
+        { "@type": "LocationFeatureSpecification", "name": "Private Beach", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Swimming Pool", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Spa", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Fitness Center", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Restaurant", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Free WiFi", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Airport Shuttle", "value": true }
+      ],
+      "checkinTime": "15:00",
+      "checkoutTime": "12:00",
+      "currenciesAccepted": "USD, EUR, GBP, EGP",
+      "paymentAccepted": "Credit Card, Cash",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "1247",
+        "bestRating": "5"
+      }
+    }
+    </script>
 
     <!-- Detect saved language BEFORE React renders to prevent flash of wrong direction -->
     <script>

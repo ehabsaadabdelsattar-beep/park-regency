@@ -11,10 +11,12 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WeddingsRouteImport } from './routes/weddings'
 import { Route as VirtualTourRouteImport } from './routes/virtual-tour'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as SuitesVillasRouteImport } from './routes/suites-villas'
 import { Route as SpaRouteImport } from './routes/spa'
 import { Route as ReviewsRouteImport } from './routes/reviews'
 import { Route as RegencyClubRouteImport } from './routes/regency-club'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as OffersRouteImport } from './routes/offers'
 import { Route as MeetingsRouteImport } from './routes/meetings'
 import { Route as GalleryRouteImport } from './routes/gallery'
@@ -42,6 +44,11 @@ const VirtualTourRoute = VirtualTourRouteImport.update({
   path: '/virtual-tour',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SuitesVillasRoute = SuitesVillasRouteImport.update({
   id: '/suites-villas',
   path: '/suites-villas',
@@ -60,6 +67,11 @@ const ReviewsRoute = ReviewsRouteImport.update({
 const RegencyClubRoute = RegencyClubRouteImport.update({
   id: '/regency-club',
   path: '/regency-club',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OffersRoute = OffersRouteImport.update({
@@ -159,10 +171,12 @@ export interface FileRoutesByFullPath {
   '/gallery': typeof GalleryRoute
   '/meetings': typeof MeetingsRoute
   '/offers': typeof OffersRoute
+  '/privacy': typeof PrivacyRoute
   '/regency-club': typeof RegencyClubRoute
   '/reviews': typeof ReviewsRoute
   '/spa': typeof SpaRoute
   '/suites-villas': typeof SuitesVillasRoute
+  '/terms': typeof TermsRoute
   '/virtual-tour': typeof VirtualTourRoute
   '/weddings': typeof WeddingsRoute
   '/rooms/$roomId': typeof RoomsRoomIdRoute
@@ -183,10 +197,12 @@ export interface FileRoutesByTo {
   '/gallery': typeof GalleryRoute
   '/meetings': typeof MeetingsRoute
   '/offers': typeof OffersRoute
+  '/privacy': typeof PrivacyRoute
   '/regency-club': typeof RegencyClubRoute
   '/reviews': typeof ReviewsRoute
   '/spa': typeof SpaRoute
   '/suites-villas': typeof SuitesVillasRoute
+  '/terms': typeof TermsRoute
   '/virtual-tour': typeof VirtualTourRoute
   '/weddings': typeof WeddingsRoute
   '/rooms/$roomId': typeof RoomsRoomIdRoute
@@ -208,10 +224,12 @@ export interface FileRoutesById {
   '/gallery': typeof GalleryRoute
   '/meetings': typeof MeetingsRoute
   '/offers': typeof OffersRoute
+  '/privacy': typeof PrivacyRoute
   '/regency-club': typeof RegencyClubRoute
   '/reviews': typeof ReviewsRoute
   '/spa': typeof SpaRoute
   '/suites-villas': typeof SuitesVillasRoute
+  '/terms': typeof TermsRoute
   '/virtual-tour': typeof VirtualTourRoute
   '/weddings': typeof WeddingsRoute
   '/rooms/$roomId': typeof RoomsRoomIdRoute
@@ -234,10 +252,12 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/meetings'
     | '/offers'
+    | '/privacy'
     | '/regency-club'
     | '/reviews'
     | '/spa'
     | '/suites-villas'
+    | '/terms'
     | '/virtual-tour'
     | '/weddings'
     | '/rooms/$roomId'
@@ -258,10 +278,12 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/meetings'
     | '/offers'
+    | '/privacy'
     | '/regency-club'
     | '/reviews'
     | '/spa'
     | '/suites-villas'
+    | '/terms'
     | '/virtual-tour'
     | '/weddings'
     | '/rooms/$roomId'
@@ -282,10 +304,12 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/meetings'
     | '/offers'
+    | '/privacy'
     | '/regency-club'
     | '/reviews'
     | '/spa'
     | '/suites-villas'
+    | '/terms'
     | '/virtual-tour'
     | '/weddings'
     | '/rooms/$roomId'
@@ -307,10 +331,12 @@ export interface RootRouteChildren {
   GalleryRoute: typeof GalleryRoute
   MeetingsRoute: typeof MeetingsRoute
   OffersRoute: typeof OffersRoute
+  PrivacyRoute: typeof PrivacyRoute
   RegencyClubRoute: typeof RegencyClubRoute
   ReviewsRoute: typeof ReviewsRoute
   SpaRoute: typeof SpaRoute
   SuitesVillasRoute: typeof SuitesVillasRoute
+  TermsRoute: typeof TermsRoute
   VirtualTourRoute: typeof VirtualTourRoute
   WeddingsRoute: typeof WeddingsRoute
   RoomsRoomIdRoute: typeof RoomsRoomIdRoute
@@ -330,6 +356,13 @@ declare module '@tanstack/react-router' {
       path: '/virtual-tour'
       fullPath: '/virtual-tour'
       preLoaderRoute: typeof VirtualTourRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/suites-villas': {
@@ -358,6 +391,13 @@ declare module '@tanstack/react-router' {
       path: '/regency-club'
       fullPath: '/regency-club'
       preLoaderRoute: typeof RegencyClubRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/offers': {
@@ -491,10 +531,12 @@ const rootRouteChildren: RootRouteChildren = {
   GalleryRoute: GalleryRoute,
   MeetingsRoute: MeetingsRoute,
   OffersRoute: OffersRoute,
+  PrivacyRoute: PrivacyRoute,
   RegencyClubRoute: RegencyClubRoute,
   ReviewsRoute: ReviewsRoute,
   SpaRoute: SpaRoute,
   SuitesVillasRoute: SuitesVillasRoute,
+  TermsRoute: TermsRoute,
   VirtualTourRoute: VirtualTourRoute,
   WeddingsRoute: WeddingsRoute,
   RoomsRoomIdRoute: RoomsRoomIdRoute,

@@ -263,8 +263,31 @@ function BookingPage() {
 
   const handleNextStep = () => {
     if (canNext()) {
-      setStep((prev) => prev + 1);
+      const nextStep = step + 1;
+      setStep(nextStep);
       window.scrollTo(0, 0);
+
+      // Step 3 → 4: booking confirmed — send WhatsApp notification
+      if (step === 3 && selectedRoom) {
+        const ref = bookingRef || "PR-" + Math.random().toString(36).slice(2, 8).toUpperCase();
+        const msg = encodeURIComponent(
+          `🏨 *New Booking Request — Park Regency*\n\n` +
+          `Ref: ${ref}\n` +
+          `Guest: ${firstName} ${lastName}\n` +
+          `Email: ${email}\n` +
+          `Phone: ${phone}\n` +
+          `Nationality: ${nationality}\n\n` +
+          `Room: ${selectedRoom.nameKey}\n` +
+          `Rate: ${selectedRate?.name || ""}\n` +
+          `Arrival: ${arrival}\n` +
+          `Departure: ${departure}\n` +
+          `Nights: ${nights}\n` +
+          `Adults: ${adults} | Children: ${children}\n\n` +
+          `Special Requests: ${specialRequests || "None"}\n\n` +
+          `Please confirm this reservation. Thank you! 🌊`
+        );
+        window.open(`https://wa.me/20693600000?text=${msg}`, "_blank");
+      }
     }
   };
 
@@ -721,18 +744,20 @@ function BookingPage() {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
-                  <button
-                    onClick={() => alert("Summary PDF downloaded successfully!")}
-                    className="px-6 py-3.5 bg-ocean-deep text-white hover:bg-gold hover:text-ocean-deep text-xs font-semibold uppercase tracking-[0.2em] inline-flex items-center justify-center gap-2 transition-colors cursor-pointer"
+                  <a
+                    href={`https://wa.me/20693600000?text=${encodeURIComponent(`Booking ref: ${bookingRef} — ${firstName} ${lastName}. Arrival: ${arrival}. Departure: ${departure}. Please send my confirmation receipt.`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-6 py-3.5 bg-[#25D366] text-white hover:bg-[#20ba5a] text-xs font-semibold uppercase tracking-[0.2em] inline-flex items-center justify-center gap-2 transition-colors"
                   >
-                    <Download className="h-4 w-4" /> {t("booking.downloadPdf")}
-                  </button>
-                  <button
-                    onClick={() => alert("Email receipt re-sent successfully!")}
-                    className="px-6 py-3.5 border border-border text-xs font-semibold uppercase tracking-[0.2em] inline-flex items-center justify-center gap-2 hover:border-gold hover:text-gold transition-colors cursor-pointer"
+                    <Download className="h-4 w-4" /> WhatsApp Receipt
+                  </a>
+                  <a
+                    href={`mailto:reservations@parkregency.com?subject=Booking Confirmation ${bookingRef}&body=Dear Park Regency Team,%0A%0APlease send the confirmation for booking ref: ${bookingRef}%0AGuest: ${firstName} ${lastName}%0AArrival: ${arrival} | Departure: ${departure}%0A%0AThank you.`}
+                    className="px-6 py-3.5 border border-border text-xs font-semibold uppercase tracking-[0.2em] inline-flex items-center justify-center gap-2 hover:border-gold hover:text-gold transition-colors"
                   >
                     <Mail className="h-4 w-4" /> {t("booking.emailConfirmation")}
-                  </button>
+                  </a>
                   <Link
                     to="/"
                     className="px-6 py-3.5 border border-border text-xs font-semibold uppercase tracking-[0.2em] hover:border-gold hover:text-gold transition-colors text-center cursor-pointer"

@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { SiteHeader } from "./site-header";
 import { SiteFooter } from "./site-footer";
+import { WhatsAppFab } from "./whatsapp-fab";
 
 export function PageShell({ children }: { children: ReactNode }) {
   return (
@@ -8,6 +9,7 @@ export function PageShell({ children }: { children: ReactNode }) {
       <SiteHeader />
       <main>{children}</main>
       <SiteFooter />
+      <WhatsAppFab />
     </>
   );
 }
