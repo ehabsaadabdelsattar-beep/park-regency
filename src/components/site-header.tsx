@@ -64,8 +64,9 @@ export function SiteHeader() {
   ];
 
   return (
-    <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
+    <>
+      <header
+        className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
         scrolled
           ? "bg-background/95 backdrop-blur-md border-b border-border py-3"
           : "bg-transparent py-5"
@@ -130,18 +131,19 @@ export function SiteHeader() {
           <button
             aria-label="Open menu"
             onClick={() => setOpen(true)}
-            className={`lg:hidden ${scrolled ? "text-foreground" : "text-white"}`}
+            className={`lg:hidden cursor-pointer ${scrolled ? "text-foreground" : "text-white"}`}
           >
             <Menu className="h-6 w-6" />
           </button>
         </div>
       </div>
+    </header>
 
       {open && (
-        <div className="fixed inset-0 bg-ocean-deep z-50 flex flex-col p-6 lg:hidden overflow-auto">
+        <div className="fixed inset-0 bg-ocean-deep z-[100] flex flex-col p-6 lg:hidden overflow-auto">
           <div className="flex justify-between items-center">
             <img src={logoFull} alt="Park Regency" className="h-10 w-auto brightness-0 invert" />
-            <button aria-label="Close menu" onClick={() => setOpen(false)} className="text-white">
+            <button aria-label="Close menu" onClick={() => setOpen(false)} className="text-white cursor-pointer">
               <X className="h-6 w-6" />
             </button>
           </div>
@@ -179,6 +181,6 @@ export function SiteHeader() {
           </nav>
         </div>
       )}
-    </header>
+    </>
   );
 }
