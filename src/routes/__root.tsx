@@ -4,12 +4,9 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
-  HeadContent,
-  Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { useEffect } from "react";
 
-import appCss from "../styles.css?url";
 import "../i18n";
 import i18n, { SUPPORTED_LANGS, type Lang } from "../i18n";
 import { CurrencyProvider } from "../contexts/currency-context";
@@ -71,63 +68,17 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Park Regency Sharm El Sheikh — Luxury Red Sea Resort" },
-      {
-        name: "description",
-        content:
-          "5-star luxury resort on the Red Sea. Private beaches, world-class dining, spa & suites in Sharm El Sheikh.",
-      },
-      { property: "og:title", content: "Park Regency Sharm El Sheikh" },
-      { property: "og:description", content: "Luxury Red Sea resort experience." },
-      { property: "og:type", content: "website" },
-      { property: "og:image", content: "/og-image.jpg" },
-      { property: "og:site_name", content: "Park Regency Sharm El Sheikh" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Park Regency Sharm El Sheikh" },
-      { name: "twitter:description", content: "Luxury Red Sea resort experience." },
-      { name: "theme-color", content: "#1a3a5c" },
-      { name: "robots", content: "index, follow" },
-    ],
-    links: [
-      { rel: "stylesheet", href: appCss },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Amiri:wght@400;700&family=Cairo:wght@300;400;500;600;700&display=swap",
-      },
-      { rel: "icon", type: "image/png", href: "/favicon.png" },
-    ],
-  }),
-  shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
   errorComponent: ErrorComponent,
 });
 
-function RootShell({ children }: { children: ReactNode }) {
-  return (
-    <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  );
-}
-
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   useEffect(() => {
-    const saved = (typeof window !== "undefined" && localStorage.getItem("pr-lang")) as Lang | null;
+    const saved = (typeof window !== "undefined" &&
+      localStorage.getItem("pr-lang")) as Lang | null;
     const lang: Lang =
       saved && (SUPPORTED_LANGS as readonly string[]).includes(saved) ? saved : "en";
     if (i18n.language !== lang) i18n.changeLanguage(lang);

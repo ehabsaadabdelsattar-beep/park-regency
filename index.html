@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Park Regency Sharm El Sheikh — Luxury Red Sea Resort</title>
+    <meta
+      name="description"
+      content="5-star luxury resort on the Red Sea. Private beaches, world-class dining, spa &amp; suites in Sharm El Sheikh."
+    />
+    <meta property="og:title" content="Park Regency Sharm El Sheikh" />
+    <meta property="og:description" content="Luxury Red Sea resort experience." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/og-image.jpg" />
+    <meta property="og:site_name" content="Park Regency Sharm El Sheikh" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Park Regency Sharm El Sheikh" />
+    <meta name="twitter:description" content="Luxury Red Sea resort experience." />
+    <meta name="theme-color" content="#1a3a5c" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Detect saved language BEFORE React renders to prevent flash of wrong direction -->
+    <script>
+      try {
+        var _lang = localStorage.getItem("pr-lang") || "en";
+        document.documentElement.lang = _lang;
+        document.documentElement.dir = _lang === "ar" ? "rtl" : "ltr";
+      } catch (e) {}
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Amiri:wght@400;700&family=Cairo:wght@300;400;500;600;700&display=swap"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
