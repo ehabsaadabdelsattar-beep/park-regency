@@ -62,7 +62,7 @@ export function LocaleSwitcher({ light = false }: { light?: boolean }) {
           aria-label={t("common.selectLanguage")}
         >
           <Globe className="h-3.5 w-3.5" />
-          <span className="hidden sm:inline">{current.code.toUpperCase()}</span>
+          <span>{current.code.toUpperCase()}</span>
           <ChevronDown className="h-3 w-3" />
         </button>
         {openLang && (

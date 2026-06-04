@@ -147,7 +147,7 @@ export function SiteHeader() {
               <X className="h-6 w-6" />
             </button>
           </div>
-          <div className="mt-6 pb-4 border-b border-white/10">
+          <div className="mt-6 pb-4 border-b border-white/10 flex justify-end">
             <LocaleSwitcher light />
           </div>
           <nav className="flex flex-col gap-2 mt-12">
